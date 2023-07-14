@@ -1,0 +1,21 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav i {
+    color: #00cca0;
+    margin-left: 1em;
+    margin-right: 0.2em;
+    position: relative;
+    top: 6px;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+}

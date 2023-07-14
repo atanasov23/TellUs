@@ -1,0 +1,29 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 5em;
+    margin-top: 4em;
+}
+
+.profile-image img {
+    display: block;
+    width: 100%;
+    border-radius: 100%;
+}
+
+.app-logo {
+    width: 200px;
+    height: 200px;
+    margin-left: 3em;
+}
+
+.app-logo img {
+    display: block;
+    width: 100%;
+}
