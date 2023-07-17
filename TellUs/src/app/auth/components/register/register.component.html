@@ -1,10 +1,11 @@
 <div class="register-form">
     <app-app-logo></app-app-logo>
-    <form>
-        <input type="text" placeholder="Потребителско име">
-        <input type="text" placeholder="Парола">
-        <input type="text" placeholder="Повтори паролата">
-        <input type="text" placeholder="Имейл">
+    <p>{{errorMessage}}</p>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <input type="text" name="username" placeholder="Потребителско име" ngModel>
+        <input type="text" name="password" placeholder="Парола" ngModel>
+        <input type="text" name="repeatPassword" placeholder="Повтори паролата" ngModel>
+        <input type="text" name="email" placeholder="Имейл" ngModel>
         <button>Регистрация</button>
     </form>
     <a routerLink="/login">Вече имаш акаунт?</a>

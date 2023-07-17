@@ -1,0 +1,16 @@
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5em;
+}
+
+.user-image {
+    width: 400px;
+    height: 400px;
+}
+
+.user-image img {
+    width: 100%;
+    height: auto;
+}
