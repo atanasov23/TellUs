@@ -4,14 +4,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 
 export class RegisterService {
-  
-  constructor(private http: HttpClient) {}
 
-  userRegister(userData: any){
+  constructor(private http: HttpClient) { }
 
-   this.http.post('http://localhost:3000/register', userData).subscribe(res => console.log(res));
+  userRegister(userData: any) {
+
+    return this.http.post('http://localhost:3000/register', userData);
 
   }
 
-  
+
 }

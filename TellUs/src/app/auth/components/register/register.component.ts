@@ -20,9 +20,9 @@ export class RegisterComponent {
 
     if (this.inputValidation.dataVerification(this.userData) === 'true') {
 
-      this.register.userRegister(this.userData);
-
-      this.router.navigateByUrl('/');
+       this.register.userRegister(this.userData).subscribe(res => {}, err => this.errorMessage = err.error.message);
+       
+      /* this.router.navigateByUrl('/'); */
 
     } else {
 

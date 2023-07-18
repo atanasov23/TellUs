@@ -21,11 +21,14 @@ router.post('/login', async (req, res) => {
 
 router.post('/register', async (req, res) => {
 
+    
+        /* await register(req.body); */
 
-    await register(req.body);
-
-    res.send({s: true})
-
+        res.status(401).json({
+            message: 'Нещо се обърка! Моля, опитайте отново.',
+            status: false
+         })
+    
 });
 
 router.get('/logout', (req, res) => {
