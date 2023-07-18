@@ -13,7 +13,18 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    publications: [{
+        type: String
+    }],
+    followers: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'users'
+    }],
+    followed: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'users'
+    }]
 });
 
 const User = mongoose.model('User', userSchema);
