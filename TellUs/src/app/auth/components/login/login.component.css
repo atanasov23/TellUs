@@ -39,3 +39,7 @@
     border: 1px solid #CCCCCC;
     background-color: #F2F3F5;
 }
+
+p {
+    color: red;
+}

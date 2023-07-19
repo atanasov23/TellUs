@@ -7,7 +7,7 @@ const register = async (data) => {
 
     const hashedPassword = await bcrypt.hash(data.password, 10);
 
-    User.create({
+    return User.create({
         username: data.username,
         email: data.email,
         password: hashedPassword
@@ -16,7 +16,7 @@ const register = async (data) => {
 
 const login = async (data) => {
 
-    const user = await User.findOne({ username: data.email });
+    const user = await User.findOne({ username: data.username });
 
     if (user) {
 
@@ -36,12 +36,12 @@ const login = async (data) => {
 
         } else {
 
-            throw new Error('Email or password is incorrect');
+            throw new Error('Имейлът или паролата са неправилни!');
         }
 
     } else {
 
-        throw new Error('Email or password is incorrect');
+        throw new Error('Имейлът или паролата са неправилни!');
 
     }
 

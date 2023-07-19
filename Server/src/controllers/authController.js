@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { register, login } = require('../services/authService');
 
+
 router.post('/login', async (req, res) => {
 
     try {
@@ -9,26 +10,31 @@ router.post('/login', async (req, res) => {
 
         res.cookie('auth', token);
 
-        res.redirect('/');
+        res.json(token);
 
     } catch (err) {
 
-        res.render('auth/login', { err: err.message });
-
+        res.status(401).json({
+            message: err.message,
+            status: false
+        })
     }
 
 });
 
 router.post('/register', async (req, res) => {
 
-    
-        /* await register(req.body); */
-
+    try {
+        await register(req.body);
+        res.send({
+            status: true
+        }).status(200);
+    } catch (err) {
         res.status(401).json({
             message: 'Нещо се обърка! Моля, опитайте отново.',
             status: false
-         })
-    
+        })
+    }
 });
 
 router.get('/logout', (req, res) => {
