@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from 'src/app/shared/services/authentication.service';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,11 +10,20 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class NavigationComponent {
 
-  loggedInUser: boolean = false;
+  loggedInUser: boolean = this.authUser.isLoggedIn();
 
-  constructor(private authUser: AuthService) { }
+  constructor(private authUser: AuthService, private route: Router, private cookieService: CookieService) {
 
-  ngOnInit() {
-    this.loggedInUser = this.authUser.isLoggedIn();
+   this.authUser.isUserLoggedIn.subscribe(value => {
+      this.loggedInUser = value;
+    });
+
   }
+
+  logout(){
+    this.authUser.isUserLoggedIn.next(false);
+    this.cookieService.delete('token');
+    this.route.navigateByUrl('');
+  }
+
 }

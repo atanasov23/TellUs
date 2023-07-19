@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 
-export class AuthService {
+export class UserAuthService {
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,5 @@ export class AuthService {
 
     return this.http.post('http://localhost:3000/login', userData);
   }
-
 
 }

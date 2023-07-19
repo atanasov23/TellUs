@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { InputValidationService } from '../../services/register-input-validation.service';
-import { AuthService } from '../../services/auth.service';
+import { UserAuthService } from '../../services/userAuth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class RegisterComponent {
   errorMessage: string = '';
   userData = {};
 
-  constructor(private inputValidation: InputValidationService, private register: AuthService, private router: Router) { }
+  constructor(private inputValidation: InputValidationService, private register: UserAuthService, private router: Router) { }
 
   onSubmit(event: any) {
     this.userData = event.value

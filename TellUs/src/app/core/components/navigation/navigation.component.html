@@ -9,4 +9,5 @@
     <a *ngIf="loggedInUser" routerLink="/notification"><i class="fa fa-bell fa-lg" aria-hidden="true"></i>Известия</a>
     <a *ngIf="loggedInUser" routerLink="/creation"><i class="fa fa-plus fa-lg" aria-hidden="true"></i>Създаване</a>
     <a *ngIf="loggedInUser" routerLink="/profile"><i class="fa fa-user fa-lg" aria-hidden="true"></i>Профил</a>
+    <a routerLink="#" *ngIf="loggedInUser" (click)="logout()">Изход</a>
 </nav>

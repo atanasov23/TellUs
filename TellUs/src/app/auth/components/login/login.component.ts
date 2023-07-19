@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { UserAuthService } from '../../services/userAuth.service';
 import { CookieService } from 'ngx-cookie-service';
-import jwt_decode from 'jwt-decode';
+import { AuthService } from 'src/app/shared/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent {
   token: object = {};
   userData = {};
 
-  constructor(private router: Router, private login: AuthService, private cookieService: CookieService) { }
+  constructor(private router: Router, private login: UserAuthService, private cookieService: CookieService, private authService: AuthService) { }
 
   onSubmit(event: any) {
     this.userData = event.value;
@@ -23,10 +23,10 @@ export class LoginComponent {
     this.login.userLogin(this.userData).subscribe(res => {
       this.token = res;
 
-      console.log(jwt_decode(String(this.token)));
-      
       this.cookieService.set('token', String(this.token));
       //TODO
+
+      this.authService.isUserLoggedIn.next(true);
       this.router.navigateByUrl('/')
     }, err => {
       this.errorMessage = err.error.message;
