@@ -5,4 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './main-view-test.component.html',
   styleUrls: ['./main-view-test.component.css']
 })
-export class MainViewTestComponent {}
+export class MainViewTestComponent {
+
+  test = 'dad';
+
+  a(){
+    this.test = '20000';
+  }
+}
