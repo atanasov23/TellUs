@@ -39,12 +39,12 @@ const login = async (data) => {
 
         } else {
 
-            throw new Error('Имейлът или паролата са неправилни!');
+            throw new Error('Имейлът или паролата са грешни!');
         }
 
     } else {
 
-        throw new Error('Имейлът или паролата са неправилни!');
+        throw new Error('Имейлът или паролата са грешни!');
 
     }
 

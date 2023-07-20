@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { UserAuthService } from '../../services/userAuth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/shared/services/authentication.service';
-import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
