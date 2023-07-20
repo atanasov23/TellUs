@@ -32,7 +32,10 @@ const login = async (data) => {
 
             const jwt = await myUtils.jwpPromises.sign(payload, SECRET);
 
-            return jwt;
+            return /* jwt */{
+                jwt,
+                user
+            };
 
         } else {
 

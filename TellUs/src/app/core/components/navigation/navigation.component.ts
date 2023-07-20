@@ -23,6 +23,7 @@ export class NavigationComponent {
   logout(){
     this.authUser.isUserLoggedIn.next(false);
     this.cookieService.delete('token');
+    this.cookieService.delete('user');
     this.route.navigateByUrl('');
   }
 

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserAuthService } from '../../services/userAuth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/shared/services/authentication.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,10 @@ import { AuthService } from 'src/app/shared/services/authentication.service';
 export class LoginComponent {
 
   errorMessage = '';
-  token: object = {};
+  token: any = {
+    jwt: '',
+    user: ''
+  };
   userData = {};
 
   constructor(private router: Router, private login: UserAuthService, private cookieService: CookieService, private authService: AuthService) { }
@@ -23,8 +27,8 @@ export class LoginComponent {
     this.login.userLogin(this.userData).subscribe(res => {
       this.token = res;
 
-      this.cookieService.set('token', String(this.token));
-      //TODO
+      this.cookieService.set('token', this.token.jwt);
+      this.cookieService.set('user', JSON.stringify(this.token.user));
 
       this.authService.isUserLoggedIn.next(true);
       this.router.navigateByUrl('/')

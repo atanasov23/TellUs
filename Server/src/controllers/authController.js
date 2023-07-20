@@ -10,7 +10,7 @@ router.post('/login', async (req, res) => {
 
         res.cookie('auth', token);
 
-        res.json(token);
+        res.send(token);
 
     } catch (err) {
 
