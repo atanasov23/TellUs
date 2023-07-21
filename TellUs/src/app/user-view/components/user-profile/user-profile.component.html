@@ -4,19 +4,19 @@
 <p>{{userData.publications.length}}</p> -->
 
 <div class="data-view">
-    <div class="profile-image">
+    <!-- <div class="profile-image">
         <img src="../../../assets/image/357360533_781266310112576_3719100550210729241_n.jpg" alt="">
-    </div>
+    </div> -->
+    <app-user-profile-image></app-user-profile-image>
     <div class="profile-data">
         <div class="user-edit">
             <p>{{userData.username}}</p>
             <a routerLink="edit">Редактиране на профила</a>
-            <!-- <a routerLink="nav">Test</a> -->
         </div>
 
         <div class="user-info">
             <p>{{userData.publications.length}} публикации</p>
-            <p>{{userData.followers.length}}последователи</p>
+            <p>{{userData.followers.length}} последователи</p>
             <p>{{userData.followed.length}} последвани</p>
         </div>
 

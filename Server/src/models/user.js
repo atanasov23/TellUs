@@ -24,7 +24,10 @@ const userSchema = new mongoose.Schema({
     followed: [{
         type: mongoose.Types.ObjectId,
         ref: 'users'
-    }]
+    }],
+    profileImage: {
+        type: String
+    }
 });
 
 const User = mongoose.model('User', userSchema);

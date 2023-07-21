@@ -9,6 +9,10 @@ export class GetCookieService {
   constructor(private cookie: CookieService) { }
 
   getCookie() {
-    return JSON.parse(this.cookie.get('user'));
+
+    if(this.cookie.get('user')){
+      return JSON.parse(this.cookie.get('user'));
+    }
+    
   }
 }

@@ -23,7 +23,5 @@ export class UserProfileComponent {
 
     this.userData = this.cookie.getCookie();
 
-    console.log(this.userData);
-
   }
 }

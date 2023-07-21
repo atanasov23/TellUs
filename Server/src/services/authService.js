@@ -10,7 +10,8 @@ const register = async (data) => {
     return User.create({
         username: data.username,
         email: data.email,
-        password: hashedPassword
+        password: hashedPassword,
+        profileImage: ''
     });
 }
 

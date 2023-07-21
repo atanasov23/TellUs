@@ -1,0 +1,8 @@
+<div class="profile-image">
+    <!-- <img *ngIf="image === '' " src="../../../assets/image/357360533_781266310112576_3719100550210729241_n.jpg" alt=""> -->
+    <div *ngIf="image === ''" class="noImage">
+        <i class="fa fa-picture-o fa-lg" aria-hidden="true"></i>
+    </div>
+    <img *ngIf="image !== ''" src="http://localhost:3000/usersProfileImage/{{image}}" alt="">
+</div>
+

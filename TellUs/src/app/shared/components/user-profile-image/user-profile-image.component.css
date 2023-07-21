@@ -1,0 +1,27 @@
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 5em;
+    margin-top: 2.5em;
+}
+
+.profile-image img {
+    display: block;
+    width: 100%;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.noImage{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 5em;
+    margin-top: 2.5em;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
