@@ -9,6 +9,13 @@ router.get('/getImage/:username', async (req, res) => {
 
     res.json(data.profileImage);
 
-})
+});
+
+router.get('/:username', async ( req, res ) => {
+
+    const user = await userData.getUserData(req.params.username);
+
+    res.send(user);
+});
 
 module.exports = router;

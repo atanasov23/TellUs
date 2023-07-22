@@ -25,4 +25,15 @@ export class GetUserDataService {
     return this.http.get(`http://localhost:3000/getImage/${this.username}`);
   }
 
+  getUserData() {
+
+    if (this.cookie.getCookie()) {
+
+      this.username = this.cookie.getCookie().username;
+
+    }
+    
+    return this.http.get(`http://localhost:3000/${this.username}`);
+  }
+
 }

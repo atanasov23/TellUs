@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
+import { GetUserDataService } from '../../services/get-user-data.service';
+/* import { GetCookieService } from 'src/app/shared-services/get-cookie.service'; */
 
 @Component({
   selector: 'app-user-profile',
@@ -17,11 +18,11 @@ export class UserProfileComponent {
     publications: []
   }
 
-  constructor(private cookie: GetCookieService) { }
+  constructor(private userService: GetUserDataService) { }
 
   ngOnInit() {
 
-    this.userData = this.cookie.getCookie();
+    this.userService.getUserData().subscribe(res => { this.userData = res });
 
   }
 }
