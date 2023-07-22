@@ -8,11 +8,33 @@ export class GetCookieService {
 
   constructor(private cookie: CookieService) { }
 
-  getCookie() {
+  getCookie(cookie: string) {
 
-    if(this.cookie.get('user')){
-      return JSON.parse(this.cookie.get('user'));
+
+    if (this.cookie.get(cookie)) {
+      if (cookie === 'user') {
+        return JSON.parse(this.cookie.get(cookie));
+      } else {
+
+        if (this.cookie.get('image') === '""') {
+          return String(this.cookie.get(cookie)).replace('""', '');
+        } else {
+          return this.cookie.get('image');
+        }
+      }
     }
-    
+
+  }
+
+  setCookie(value: any) {
+
+    let oldCookie = JSON.parse(this.cookie.get('user'));
+
+    oldCookie.profileImage = value;
+
+    this.cookie.delete('user');
+
+    this.cookie.set('user', JSON.stringify(oldCookie));
+
   }
 }

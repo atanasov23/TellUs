@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FooterComponent } from '../core/components/footer/footer.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { NavigationComponent } from '../core/components/navigation/navigation.component';
+import { UserPublicationsViewComponent } from './components/user-publications-view/user-publications-view.component';
+import { EditComponent } from './components/edit/edit.component';
 
 
 const profileRoutes: Routes = [{
     path: 'profile', component: UserProfileComponent, children: [
         {
-            path: 'edit',
-            component: FooterComponent
+            path: 'publications',
+            component: UserPublicationsViewComponent
         }, {
-            path: 'nav',
-            component: NavigationComponent
+            path: 'edit',
+            component: EditComponent
         }
     ],
 }];

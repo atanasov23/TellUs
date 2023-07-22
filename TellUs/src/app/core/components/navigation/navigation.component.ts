@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/shared-services/authentication.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { GetUserDataService } from 'src/app/user-view/services/get-user-data.service';
+import { UserDataService } from 'src/app/user-view/services/user-data.service';
 
 @Component({
   selector: 'app-navigation',
@@ -13,7 +13,7 @@ export class NavigationComponent {
 
   loggedInUser: boolean = this.authUser.isLoggedIn();
 
-  constructor(private authUser: AuthService, private route: Router, private cookieService: CookieService, private behaviorSubject: GetUserDataService) {
+  constructor(private authUser: AuthService, private route: Router, private cookieService: CookieService, private behaviorSubject: UserDataService) {
 
    this.authUser.isUserLoggedIn.subscribe(value => {
       this.loggedInUser = value;
@@ -26,6 +26,7 @@ export class NavigationComponent {
     this.behaviorSubject.changeProfileImage.next('');
     this.cookieService.delete('token');
     this.cookieService.delete('user');
+    this.cookieService.delete('image');
     this.route.navigateByUrl('');
   }
 

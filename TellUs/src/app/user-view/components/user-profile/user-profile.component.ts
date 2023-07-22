@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { GetUserDataService } from '../../services/get-user-data.service';
-/* import { GetCookieService } from 'src/app/shared-services/get-cookie.service'; */
+import { UserDataService } from '../../services/user-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -18,9 +18,11 @@ export class UserProfileComponent {
     publications: []
   }
 
-  constructor(private userService: GetUserDataService) { }
+  constructor(private userService: UserDataService, private router: Router) { }
 
   ngOnInit() {
+
+    this.router.navigateByUrl('/profile/publications');
 
     this.userService.getUserData().subscribe(res => { this.userData = res });
 

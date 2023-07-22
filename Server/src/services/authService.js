@@ -40,12 +40,12 @@ const login = async (data) => {
 
         } else {
 
-            throw new Error('Имейлът или паролата са грешни!');
+            throw new Error('Потребителското име или паролата са грешни!');
         }
 
     } else {
 
-        throw new Error('Имейлът или паролата са грешни!');
+        throw new Error('Потребителското име или паролата са грешни!');
 
     }
 

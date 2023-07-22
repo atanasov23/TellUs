@@ -1,0 +1,22 @@
+<div class="edit-form">
+    <app-app-logo></app-app-logo>
+    <p>{{responseMessageForUserData.message}}</p>
+    <form #form="ngForm" (ngSubmit)="editProfile(form)">
+        <input type="text" name="username" placeholder="Ново потребителско име" ngModel>
+        <input type="text" name="password" id="" placeholder="Нова парола" ngModel>
+        <input type="text" name="email" id="" placeholder="Нов имейл" ngModel>
+        <button type="submit">Редактиране на профил</button>
+    </form>
+    
+    <div class="imageEdit">
+        <div class="image">
+            <app-user-profile-image></app-user-profile-image>
+        </div>
+        <p>{{responseMessageForImage.message}}</p>
+        <input type="file" #imageInput type="file" accept="image/*" (change)="getImage(imageInput)">
+        <button *ngIf = "havePic === ''" (click)="imageAdd()">Добавяне на снимка</button>
+        <button *ngIf = "havePic !== ''" (click)="imageUpdate()">Смяна на снимка</button>
+        <button  *ngIf = "havePic !== ''" (click)="imageDelete()">Изтриване на снимка</button>
+    </div>
+</div>
+
