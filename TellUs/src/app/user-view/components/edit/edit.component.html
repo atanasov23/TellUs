@@ -15,7 +15,7 @@
         <p>{{responseMessageForImage.message}}</p>
         <input type="file" #imageInput type="file" accept="image/*" (change)="getImage(imageInput)">
         <button *ngIf = "havePic === ''" (click)="imageAdd()">Добавяне на снимка</button>
-        <button *ngIf = "havePic !== ''" (click)="imageUpdate()">Смяна на снимка</button>
+        <button *ngIf = "havePic !== ''" (click)="imageUpdate()">Промяна на снимка</button>
         <button  *ngIf = "havePic !== ''" (click)="imageDelete()">Изтриване на снимка</button>
     </div>
 </div>

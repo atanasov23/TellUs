@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
 import { UserDataService } from '../../services/user-data.service';
@@ -54,8 +53,6 @@ export class EditComponent {
 
       this.cookie.setCookie(this.userNewImage.formData.get('image').name);
 
-      /* this.cookieService.set('image', this.userNewImage.formData.get('image').name); */
-
       setTimeout(() => { this.responseMessageForImage.message = '' }, 3000);
     });
   }
@@ -73,8 +70,6 @@ export class EditComponent {
 
       this.cookie.setCookie(this.userNewImage.formData.get('image').name);
 
-      /* this.cookieService.set('image', this.userNewImage.formData.get('image').name); */
-
       setTimeout(() => { this.responseMessageForImage.message = '' }, 3000);
 
     });
@@ -85,8 +80,6 @@ export class EditComponent {
     this.dataService.deleteUserImage(this.cookie.getCookie('user')._id, this.cookie.getCookie('user')).subscribe(res => {
 
       this.responseMessageForImage = res;
-
-      /* this.cookieService.set('image', ''); */
 
       this.cookie.setCookie('');
 
