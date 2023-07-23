@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const { Schema } = mongoose;
+
 const userSchema = new mongoose.Schema({
 
     username: {
@@ -15,16 +17,16 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     myPublications: [{
-        type: mongoose.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'PublicationsModel'
     }],
     followers: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'users'
+        type: Schema.Types.ObjectId,
+        ref: 'Users'
     }],
     followed: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'users'
+        type: Schema.Types.ObjectId,
+        ref: 'Users'
     }],
     profileImage: {
         type: String

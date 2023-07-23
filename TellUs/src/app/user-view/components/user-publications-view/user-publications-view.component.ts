@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PublicationService } from '../../services/publication.service';
 
 @Component({
   selector: 'app-user-publications-view',
@@ -7,8 +8,14 @@ import { Component } from '@angular/core';
 })
 export class UserPublicationsViewComponent {
 
-  publications: any = [];
+  myPublications: any = [];
 
-  constructor(){}
+  constructor(private pubService: PublicationService) { }
+
+  ngOnInit() {
+    
+    this.pubService.getMyPublications().subscribe( res => this.myPublications = res);
+    
+  }
 
 }

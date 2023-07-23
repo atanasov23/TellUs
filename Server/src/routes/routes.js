@@ -6,8 +6,10 @@ const router = require('express').Router();
 
 router.use(authController);
 
+router.use(publicationController);
+
 router.use(userDataController);
 
-router.use(publicationController);
+
 
 module.exports = router;

@@ -1,1 +1,13 @@
-<p *ngIf="publications.length === 0">Нямате публикации</p>
+<p *ngIf="myPublications.length === 0">Нямате публикации...</p>
+
+<div class="my-publications">
+    <div *ngFor="let pub of myPublications" class="publication">
+        <div class="pub-image">
+            <img src="http://localhost:3000/userPublications/{{pub.fileName}}" alt="">
+        </div>
+        <div class="btn">
+            <button>Редактиране</button>
+            <button>Изтриване</button>
+        </div>
+    </div>
+</div>

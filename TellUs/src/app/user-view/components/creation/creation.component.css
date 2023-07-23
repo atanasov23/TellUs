@@ -22,9 +22,9 @@ input[type=file] {
 input[type=file]::file-selector-button {
     margin-right: 20px;
     border: none;
-    background: #00cca0;
+    background: #b0daf8;
     padding: 10px 20px;
-    color: #fff;
+    color: #39739d;
     cursor: pointer;
     transition: background .2s ease-in-out;
 }
@@ -48,12 +48,12 @@ input[type=text] {
 button {
     width: 350px;
     max-width: 100%;
-    background-color: #00cca0 !important;
+    background-color: #b0daf8 !important;
     padding: 5px;
     background: #fff;
     border-radius: 10px;
     border: none;
-    color: white;
+    color: #39739d;
     margin: 1em;
     height: 40px;
 }

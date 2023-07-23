@@ -39,6 +39,7 @@
 p {
     margin: 1em;
     font-size: 17px;
+    color: #39739d;
 }
 
 .user-edit a {
@@ -66,6 +67,13 @@ p {
 }
 
 #edit{
-    background: #00cca0;
-    color: white;
+    background: #e1ecf4;
+    color: #39739d;
+}
+
+.user-edit p {
+    background-color: #e1ecf4;
+    color: #39739d;
+    border-radius: 5px;
+    padding: 0.2em;
 }

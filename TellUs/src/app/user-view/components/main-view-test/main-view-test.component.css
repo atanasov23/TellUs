@@ -7,7 +7,7 @@
 
 .user-image {
     width: 400px;
-    height: 400px;
+    height: auto;
 }
 
 .user-image img {

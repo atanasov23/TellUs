@@ -8,13 +8,21 @@ nav{
 }
 
 nav i {
-    color: #00cca0;
+    color: #6abcf6;
     margin-left: 1em;
     margin-right: 0.2em;
 }
 
+nav i:hover{
+    color: #39739d;
+}
+
 nav a{
     text-decoration: none;
-    color: black;
+    color: #39739d;
     font-size: 14px;
+}
+
+nav a:hover{
+    color: #39739d;
 }

@@ -1,15 +1,12 @@
 const router = require('express').Router();
 const publicationsServices = require('../services/publicationServices');
-const PublicationsModel = require('../models/publications');
-const fs = require('fs');
-const { log } = require('console');
 
 
 router.post('/adding', async (req, res) => {
 
     const file = req.files.file;
 
-  const username = req.query.username;
+    const username = req.query.username;
 
     const inputData = req.query.inputData;
 
@@ -17,13 +14,8 @@ router.post('/adding', async (req, res) => {
 
     const fileType = file.mimetype;
 
-    console.log(fileName);
-
-try {
+    try {
         await publicationsServices.publication(username, inputData, fileName, fileType);
-
-        console.log(req.files.file.name);
-        console.log(fileName);
 
         file.mv(`./src/public/userPublications/${fileName}`);
 
@@ -39,6 +31,15 @@ try {
     }
 
 });
+
+router.get('/myPublications/:username', async (req, res) => {
+
+    const data = await publicationsServices.getMyPublications(req.params.username);
+
+    res.send(data.myPublications);
+});
+
+
 
 
 

@@ -22,6 +22,12 @@ const publication = async (username, pubData, fileName, fileType) => {
 
 }
 
+const getMyPublications = async (username) => {
+
+    return await User.findOne({ 'username': username}).populate('myPublications').lean(); 
+}
+
 module.exports = {
-    publication
+    publication,
+    getMyPublications
 }
