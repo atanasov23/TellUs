@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PublicationService } from '../../services/publication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation',
@@ -7,11 +9,11 @@ import { Component } from '@angular/core';
 })
 export class CreationComponent {
 
-  constructor() { }
+  constructor(private publicationService: PublicationService, private route: Router) { }
 
   formData: any = undefined;
 
-  errorMessage = '';
+  errorMessage: string = '';
 
   getImage(imageInput: any) {
 
@@ -27,7 +29,15 @@ export class CreationComponent {
 
   adding(event: any) {
 
-    if(event.value.description.length < 5 || event.value.description.length === ''){
+    const inputData = event.value;
+
+    if (event.value.description.length < 5 || event.value.description.length === '') {
+
+      if (this.formData === undefined) {
+        this.errorMessage = 'Добавете файл!';
+        setTimeout(() => { this.errorMessage = '' }, 3000);
+        return;
+      }
 
       this.errorMessage = 'Описанието е твърде кратко! Минимален брой символи 5.';
 
@@ -37,8 +47,15 @@ export class CreationComponent {
 
     } else {
 
-      console.log(200);
-      
+      this.publicationService.publication(inputData, this.formData).subscribe(res => {
+        
+        this.errorMessage = res.message;
+
+        setTimeout(() => { this.errorMessage = ''
+        this.route.navigateByUrl('/');
+      }, 3000);
+
+      });
     }
 
 

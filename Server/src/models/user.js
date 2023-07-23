@@ -14,8 +14,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    publications: [{
-        type: String
+    myPublications: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'PublicationsModel'
     }],
     followers: [{
         type: mongoose.Types.ObjectId,

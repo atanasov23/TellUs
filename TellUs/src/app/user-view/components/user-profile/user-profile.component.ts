@@ -15,7 +15,7 @@ export class UserProfileComponent {
     email: '',
     followed: [],
     followers: [],
-    publications: []
+    myPublications: []
   }
 
   constructor(private userService: UserDataService, private router: Router) { }
