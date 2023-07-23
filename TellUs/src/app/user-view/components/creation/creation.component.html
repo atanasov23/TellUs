@@ -1,0 +1,11 @@
+<div class="creation">
+
+    <app-app-logo></app-app-logo>
+
+    <p>{{errorMessage}}</p>
+    <form #form="ngForm" (ngSubmit)="adding(form)">
+        <input type="file" #imageInput type="file" (change)="getImage(imageInput)">
+        <input type="text" placeholder="Създайте описание.." name="description" ngModel>
+        <button type="submit">Добавяне</button>
+    </form>
+</div>

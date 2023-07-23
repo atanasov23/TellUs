@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UserPublicationsViewComponent } from './components/user-publications-view/user-publications-view.component';
 import { EditComponent } from './components/edit/edit.component';
 import { FormsModule } from '@angular/forms';
+import { CreationComponent } from './components/creation/creation.component';
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     MainViewTestComponent,
     UserProfileComponent,
     UserPublicationsViewComponent,
-    EditComponent
+    EditComponent,
+    CreationComponent
   ],
   imports: [
     CommonModule,
