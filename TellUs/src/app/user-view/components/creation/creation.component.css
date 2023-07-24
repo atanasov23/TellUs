@@ -22,7 +22,7 @@ input[type=file] {
 input[type=file]::file-selector-button {
     margin-right: 20px;
     border: none;
-    background: #b0daf8;
+    background: #e1ecf4;
     padding: 10px 20px;
     color: #39739d;
     cursor: pointer;
@@ -48,7 +48,7 @@ input[type=text] {
 button {
     width: 350px;
     max-width: 100%;
-    background-color: #b0daf8 !important;
+    background-color: #e1ecf4 !important;
     padding: 5px;
     background: #fff;
     border-radius: 10px;

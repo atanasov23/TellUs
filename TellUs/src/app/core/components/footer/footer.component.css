@@ -4,8 +4,11 @@ p{
     color: #39739d;
 }
 
-footer{
-    background-color: #b0daf8;
-    margin-top: 10em;
-    padding: 0.2em;
-}
+
+
+footer {
+    position: absolute;
+    margin-top: 50%;
+    width: 100%;   
+    background-color: #e1ecf4;
+  }

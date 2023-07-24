@@ -24,10 +24,32 @@ const publication = async (username, pubData, fileName, fileType) => {
 
 const getMyPublications = async (username) => {
 
-    return await User.findOne({ 'username': username}).populate('myPublications').lean(); 
+    return await User.findOne({ 'username': username }).populate('myPublications').lean();
 }
+
+const deletePost = async (postId, userId) => {
+
+    const user = await User.findById(userId);
+
+    for (let el of user.myPublications) {
+
+        if (String(el) === postId) {
+
+            const index = user.myPublications.indexOf(el);
+
+            user.myPublications.splice(index, 1);
+
+            user.save();
+
+        }
+    }
+
+    return await PublicationsModel.findByIdAndDelete(postId);
+}
+
 
 module.exports = {
     publication,
-    getMyPublications
+    getMyPublications,
+    deletePost
 }

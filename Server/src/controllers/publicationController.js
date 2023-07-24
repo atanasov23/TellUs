@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const publicationsServices = require('../services/publicationServices');
+const fs = require('fs');
 
 
 router.post('/adding', async (req, res) => {
@@ -39,8 +40,24 @@ router.get('/myPublications/:username', async (req, res) => {
     res.send(data.myPublications);
 });
 
+router.delete('/deletePost/:postId/:userId/:fileName', async (req, res) => {
 
+try {
+        await publicationsServices.deletePost(req.params.postId, req.params.userId);
 
+        fs.unlink(`./src/public/userPublications/${req.params.fileName}`, (err) => { });
 
+        res.status(200).send({
+            message: "Изтриването е успешно.",
+        });
+
+    } catch (err) {
+
+        res.status(200).send({
+            message: "Нещо се обърка! Моля опитайте отново.",
+        });
+    }
+
+});
 
 module.exports = router;

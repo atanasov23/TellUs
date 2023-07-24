@@ -25,4 +25,8 @@ export class PublicationService {
     return this.http.get(`http://localhost:3000/myPublications/${this.userData.username}`);
 
   }
+
+  deletePost(postId: any, userId: any, imageName: any){
+    return this.http.delete(`http://localhost:3000/deletePost/${postId}/${userId}/${imageName}`, {});
+  }
 }
