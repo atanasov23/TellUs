@@ -22,24 +22,29 @@
     height: 30px;
     border-radius: 10px;
     border: none;
-    color: #39739d;
-    background-color: #e1ecf4;
+    color: white;
+    background-color: #0095F6;
+    font-size: 11px;
 }
 
 .login-form a {
     margin-bottom: 1em;
     text-decoration: none;
     color: black;
+    font-size: 13px;
 }
 
 .login-form form input {
     height: 30px;
     width: 200px;
     margin-top: 1em;
-    border: 1px solid #CCCCCC;
-    background-color: #F2F3F5;
+    border: 1px solid #E8E8E8;
+    background-color: #FAFAFA;
+    outline: none;
+    font-size: 11px;
 }
 
 p {
     color: red;
+    font-size: 14px;
 }
