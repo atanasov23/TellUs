@@ -8,6 +8,7 @@ import { UserPublicationsViewComponent } from './components/user-publications-vi
 import { EditComponent } from './components/edit/edit.component';
 import { FormsModule } from '@angular/forms';
 import { CreationComponent } from './components/creation/creation.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
 
 
 
@@ -17,7 +18,8 @@ import { CreationComponent } from './components/creation/creation.component';
     UserProfileComponent,
     UserPublicationsViewComponent,
     EditComponent,
-    CreationComponent
+    CreationComponent,
+    PostDetailsComponent
   ],
   imports: [
     CommonModule,

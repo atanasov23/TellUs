@@ -1,0 +1,123 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.post-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5em;
+    flex-wrap: wrap;
+}
+
+.post-image {
+    width: 600px;
+    height: 600px;
+}
+
+.post-image img {
+    width: 100%;
+    height: auto;
+}
+
+.post-data {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    width: 400px;
+    margin-left: 1em;
+}
+
+.profile-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #7aa7c7;
+}
+
+.coments-bar {
+    overflow: auto;
+    border-bottom: 1px solid #7aa7c7;
+}
+
+.coments-bar::-webkit-scrollbar {
+    display: none;
+}
+
+i {
+    color: #7aa7c7
+}
+
+.btn {
+    display: flex;
+}
+
+.btn button {
+    margin: 0.5em;
+    background-color: transparent;
+    border: none;
+}
+
+.btn button:hover {
+    border: 1px solid #e1ecf4;
+    border-radius: 100%;
+    background-color: aliceblue;
+}
+
+.post-btn {
+    border-bottom: 1px solid #7aa7c7;
+}
+
+.post-btn button {
+    margin: 0.5em;
+    background-color: transparent;
+    border: none;
+}
+
+.post-btn p{
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+input[type=text] {
+    height: 30px;
+    width: 100%;
+    margin-bottom: 1em;
+    border: none;
+    border-bottom: 1px solid #7aa7c7;
+    outline: none;
+}
+
+form{
+    display: flex;
+}
+
+#publicationBtn{
+    height: 35px;
+    margin-left: 0.2em;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    color: #7aa7c7;
+}
+
+.coment{
+    display: flex;
+    margin: 0.4em;
+}
+
+.user{
+    background-color: red;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.user img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 100%;
+}

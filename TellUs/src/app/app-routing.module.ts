@@ -5,13 +5,15 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { UserProfileComponent } from './user-view/components/user-profile/user-profile.component';
 import { CreationComponent } from './user-view/components/creation/creation.component';
+import { PostDetailsComponent } from './user-view/components/post-details/post-details.component';
 
 const routes: Routes = [
   { path: '', component: MainViewTestComponent },
   { path: 'profile', component: UserProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'creation', component: CreationComponent }];
+  { path: 'creation', component: CreationComponent },
+  { path: 'p/:id', component: PostDetailsComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
