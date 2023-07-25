@@ -15,14 +15,14 @@ input[type=file] {
     color: #444;
     padding: 5px;
     background: #fff;
-    border: 1px solid #555;
+    border: 1px solid #E8E8E8;
     margin-left: 1em;
 }
 
 input[type=file]::file-selector-button {
     margin-right: 20px;
     border: none;
-    background: #e1ecf4;
+    background: #E8E8E8;
     padding: 10px 20px;
     color: #39739d;
     cursor: pointer;
@@ -39,21 +39,23 @@ input[type=text] {
     color: #444;
     padding: 5px;
     background: #fff;
-    background-color: #F2F3F5;
-    border: 1px solid #555;
+    background-color: #FAFAFA;
+    border: 1px solid #E8E8E8;
     margin: 1em;
     height: 30px;
+    font-size: 13px;
 }
 
 button {
     width: 350px;
     max-width: 100%;
-    background-color: #e1ecf4 !important;
+    background-color: #E8E8E8 !important;
+    font-size: 13px;
     padding: 5px;
     background: #fff;
     border-radius: 10px;
     border: none;
-    color: #39739d;
+    color: black;
     margin: 1em;
     height: 40px;
 }

@@ -36,10 +36,14 @@
     display: flex;
 }
 
+.user-info a {
+    text-decoration: none;
+}
+
 p {
     margin: 1em;
-    font-size: 17px;
-    color: #39739d;
+    font-size: 14px;
+    color: black;
 }
 
 .user-edit a {
@@ -67,13 +71,17 @@ p {
 }
 
 #edit{
-    background: #e1ecf4;
-    color: #39739d;
+    background: #EFEFEF;
+    color: black;
+    font-size: 13px;
 }
 
 .user-edit p {
-    background-color: #e1ecf4;
-    color: #39739d;
+    background-color: #EFEFEF;
+    color: black;
     border-radius: 5px;
-    padding: 0.2em;
+    padding-top: 0.4em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    font-size: 13px;
 }

@@ -1,14 +1,12 @@
 p{
     text-align: center;
     font-size: 17px;
-    color: #39739d;
+    color: white;
 }
-
-
 
 footer {
     position: absolute;
+    background-color: #0ECA9F;
     margin-top: 50%;
     width: 100%;   
-    background-color: #e1ecf4;
   }

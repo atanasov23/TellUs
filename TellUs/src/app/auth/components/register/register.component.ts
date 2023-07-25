@@ -25,11 +25,16 @@ export class RegisterComponent {
         this.router.navigateByUrl('/login');
       }, err => {
         this.errorMessage = err.error.message;
+
       });
 
     } else {
 
       this.errorMessage = String(this.inputValidation.dataVerification(this.userData));
+
+      setTimeout( () => {
+        this.errorMessage = ''
+      }, 2000);
 
     }
 

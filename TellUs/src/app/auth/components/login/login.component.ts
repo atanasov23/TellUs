@@ -36,6 +36,9 @@ export class LoginComponent {
       this.router.navigateByUrl('/')
     }, err => {
       this.errorMessage = err.error.message;
+      setTimeout( () => {
+        this.errorMessage = ''
+      }, 2000);
     });
 
   }

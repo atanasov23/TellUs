@@ -22,8 +22,9 @@
     height: 30px;
     border-radius: 10px;
     border: none;
-    color: #39739d;
-    background-color: #e1ecf4;
+    color: white;
+    background-color: #0095F6;
+    font-size: 11px;
 }
 
 .register-form a {
@@ -36,10 +37,16 @@
     height: 30px;
     width: 200px;
     margin-top: 1em;
-    border: 1px solid #CCCCCC;
-    background-color: #F2F3F5;
+    border: 1px solid #E8E8E8;
+    background-color: #FAFAFA;
+    font-size: 11px;
 }
 
 p {
     color: red;
+    font-size: 14px;
+}
+
+.register-form a {
+    font-size: 14px;
 }
