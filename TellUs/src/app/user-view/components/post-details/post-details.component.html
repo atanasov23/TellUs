@@ -8,11 +8,15 @@
             <app-user-profile-image></app-user-profile-image>
             <p>description</p>
             <div class="btn">
-                <button><i class="fa fa-pencil fa-lg" aria-hidden="true" ></i></button>
-                <button><i class="fa fa-trash fa-lg" aria-hidden="true" ></i></button>
+                <button (click) = "showEditPost()"><i class="fa fa-pencil fa-lg" aria-hidden="true" ></i></button>
+                <button (click) = "deletePost()"><i class="fa fa-trash fa-lg" aria-hidden="true" ></i></button>
             </div>
         </div>
-
+        <p id="resMessage">{{resMessage.message}}</p>
+        <form *ngIf="showEditArea" id="edit-post-form" #editForm="ngForm" (ngSubmit)="editPost(editForm)">
+            <input type="text" placeholder="Редактиране на описание.." name="editText" ngModel>
+            <button><i class="fa fa-pencil" aria-hidden="true"></i></button>
+        </form>
         <hr>
         <div class="coments-bar">
             <div class="coment">
@@ -76,7 +80,7 @@
         <div class="add-coment">
             <form>
                 <input type="text" placeholder="Добавяне на коментар..">
-                <button id="publicationBtn">Публикуване</button>
+                <button id="publicationBtn"><i class="fa fa-paper-plane-o fa-2x" aria-hidden="true"></i></button>
             </form>
         </div>
     </div>

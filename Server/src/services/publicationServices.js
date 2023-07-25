@@ -31,6 +31,8 @@ const deletePost = async (postId, userId) => {
 
     const user = await User.findById(userId);
 
+    const fileName = await PublicationsModel.findById(postId);
+
     for (let el of user.myPublications) {
 
         if (String(el) === postId) {
@@ -44,12 +46,20 @@ const deletePost = async (postId, userId) => {
         }
     }
 
-    return await PublicationsModel.findByIdAndDelete(postId);
+    await PublicationsModel.findByIdAndDelete(postId);
+
+    return fileName.fileName;
+}
+
+const editPost = async (postId, text) => {
+
+    return await PublicationsModel.findByIdAndUpdate(postId, {"description": text});
 }
 
 
 module.exports = {
     publication,
     getMyPublications,
-    deletePost
+    deletePost,
+    editPost
 }

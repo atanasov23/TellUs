@@ -40,12 +40,12 @@ router.get('/myPublications/:username', async (req, res) => {
     res.send(data.myPublications);
 });
 
-router.delete('/deletePost/:postId/:userId/:fileName', async (req, res) => {
+router.delete('/deletePost/:postId/:userId', async (req, res) => {
 
-try {
-        await publicationsServices.deletePost(req.params.postId, req.params.userId);
+    try {
+        const fileName = await publicationsServices.deletePost(req.params.postId, req.params.userId);
 
-        fs.unlink(`./src/public/userPublications/${req.params.fileName}`, (err) => { });
+        fs.unlink(`./src/public/userPublications/${fileName}`, (err) => { });
 
         res.status(200).send({
             message: "Изтриването е успешно.",
@@ -59,5 +59,24 @@ try {
     }
 
 });
+
+router.post('/editPost/:postId', async (req, res) => {
+
+
+  try {
+
+        await publicationsServices.editPost(req.params.postId, req.body.data.editText);
+        
+        res.status(200).send({
+            message: "Редактирането е успешно.",
+        });
+
+    } catch (err) {
+
+        res.status(200).send({
+            message: "Нещо се обърка! Моля опитайте отново.",
+        });
+    }
+})
 
 module.exports = router;

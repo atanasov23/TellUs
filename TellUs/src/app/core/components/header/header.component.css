@@ -3,3 +3,7 @@ header {
     justify-content: space-between;
     padding-right: 2em;
 }
+
+app-user-profile-image{
+    margin-top: 3em;
+}
