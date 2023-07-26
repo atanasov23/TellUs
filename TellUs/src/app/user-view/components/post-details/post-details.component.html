@@ -1,15 +1,23 @@
 <div class="post-details">
     <div class="post-image">
-        <img src="../../../../assets/image/357360533_781266310112576_3719100550210729241_n.jpg" alt="">
+        <img src="http://localhost:3000/userPublications/{{postDetails.fileName}}" alt="">
     </div>
     <div class="post-data">
 
         <div class="profile-data">
-            <app-user-profile-image></app-user-profile-image>
-            <p>description</p>
-            <div class="btn">
-                <button (click) = "showEditPost()"><i class="fa fa-pencil fa-lg" aria-hidden="true" ></i></button>
-                <button (click) = "deletePost()"><i class="fa fa-trash fa-lg" aria-hidden="true" ></i></button>
+            <div class="ownerData">
+                <div class="profile-image">
+                    <div *ngIf="postDetails.ownerImage === ''" class="noImage">
+                        <i class="fa fa-picture-o fa-lg" aria-hidden="true" style="color:black"></i>
+                    </div>
+                    <img *ngIf="postDetails.ownerImage !== ''" src="http://localhost:3000/usersProfileImage/{{postDetails.ownerImage}}" alt="">
+                </div>
+            </div>
+
+            <p>{{postDetails.description}}</p>
+            <div *ngIf="userId === postDetails.owner" class="btn">
+                <button (click)="showEditPost()"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+                <button (click)="deletePost()"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></button>
             </div>
         </div>
         <p id="resMessage">{{resMessage.message}}</p>
@@ -19,7 +27,8 @@
         </form>
         <hr>
         <div class="coments-bar">
-            <div class="coment">
+           
+            <div *ngFor="let coment of postDetails.comments" class="coment">
                 <div class="user">
                     <img src="../../../../assets/image/357360533_781266310112576_3719100550210729241_n.jpg" alt="">
                 </div>
@@ -27,59 +36,22 @@
                     <p>adawdaawd</p>
                 </div>
             </div>
-            <div class="coment">
-                <div class="user">
-                    <img src="../../../../assets/image/357360533_781266310112576_3719100550210729241_n.jpg" alt="">
-                </div>
-                <div class="coment">
-                    <p>adawdaawd</p>
-                </div>
-            </div>
-            <div class="coment">
-                <div class="user">
-                    <img src="../../../../assets/image/357360533_781266310112576_3719100550210729241_n.jpg" alt="">
-                </div>
-                <div class="coment">
-                    <p>adawdaawd</p>
-                </div>
-            </div>
-            <div class="coment">
-                <div class="user">
-                    <img src="../../../../assets/image/357360533_781266310112576_3719100550210729241_n.jpg" alt="">
-                </div>
-                <div class="coment">
-                    <p>adawdaawd</p>
-                </div>
-            </div>
-            <div class="coment">
-                <div class="user">
-                    <img src="../../../../assets/image/357360533_781266310112576_3719100550210729241_n.jpg" alt="">
-                </div>
-                <div class="coment">
-                    <p>adawdaawd</p>
-                </div>
-            </div>
-            <div class="coment">
-                <div class="user">
-                    <img src="../../../../assets/image/357360533_781266310112576_3719100550210729241_n.jpg" alt="">
-                </div>
-                <div class="coment">
-                    <p>adawdaawd</p>
-                </div>
-            </div>
+            <p *ngIf="!postDetails.comments?.length">Няма коментари..</p>
+
         </div>
         <hr>
 
         <div class="post-btn">
-            <button><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></button>
-            <button><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></button>
-            <p>3453 харесвания</p>
+            <button *ngIf="postDetails.owner !== user._id" (click)="like()"><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></button>
+            <button *ngIf="postDetails.owner !== user._id" (click)="coment()"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></button>
+            <p>{{postDetails.likes?.length}} харесвания</p>
         </div>
+        
         <hr>
-
-        <div class="add-coment">
-            <form>
-                <input type="text" placeholder="Добавяне на коментар..">
+        <p id="messageToUser">{{messageToUser}}</p>
+        <div *ngIf="postDetails.owner !== user._id"class="add-coment">
+            <form #form="ngForm" (ngSubmit)="sendComent(form)">
+                <input type="text" placeholder="Добавяне на коментар.." name=coment ngModel>
                 <button id="publicationBtn"><i class="fa fa-paper-plane-o fa-2x" aria-hidden="true"></i></button>
             </form>
         </div>

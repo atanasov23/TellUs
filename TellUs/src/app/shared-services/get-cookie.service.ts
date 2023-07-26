@@ -9,8 +9,6 @@ export class GetCookieService {
   constructor(private cookie: CookieService) { }
 
   getCookie(cookie: string) {
-
-
     if (this.cookie.get(cookie)) {
       if (cookie === 'user') {
         return JSON.parse(this.cookie.get(cookie));
@@ -22,6 +20,8 @@ export class GetCookieService {
           return this.cookie.get('image');
         }
       }
+    } else{
+      return {}
     }
 
   }

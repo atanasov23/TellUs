@@ -1,17 +1,18 @@
 const User = require('../models/user');
 const PublicationsModel = require('../models/publications');
 
-const publication = async (username, pubData, fileName, fileType) => {
+const publication = async (username, pubData, fileName, fileType, profileImage) => {
 
     const user = new User();
 
-    const userData = await User.findOne({ 'username': username });
+    const userData = await User.findById(username);
 
     const addingPublication = await PublicationsModel.create({
         description: pubData,
         owner: username,
         fileName: fileName,
-        type: fileType
+        type: fileType,
+        ownerImage: profileImage
     });
 
     userData.myPublications.push(addingPublication._id);
@@ -57,9 +58,21 @@ const editPost = async (postId, text) => {
 }
 
 
+const getAllPosts = async () => {
+
+   return await PublicationsModel.find();
+}
+
+const getPostById = async (postId) => {
+    return await PublicationsModel.findById(postId);
+}
+
+
 module.exports = {
     publication,
     getMyPublications,
     deletePost,
-    editPost
+    editPost,
+    getAllPosts,
+    getPostById
 }

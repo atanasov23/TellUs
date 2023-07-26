@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { PublicationService } from '../../services/publication.service';
 import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-publications-view',
@@ -12,11 +11,13 @@ export class UserPublicationsViewComponent {
 
   myPublications: any = [];
 
-  constructor(private pubService: PublicationService) { }
+  userData: any = this.cookie.getCookie('user');
+
+  constructor(private pubService: PublicationService, private cookie: GetCookieService) { }
 
   ngOnInit() {
-
-    this.pubService.getMyPublications().subscribe(res => this.myPublications = res);
+    
+    this.pubService.getMyPublications(this.userData.username).subscribe(res => this.myPublications = res);
 
   }
 

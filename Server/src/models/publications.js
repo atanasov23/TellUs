@@ -11,6 +11,9 @@ const publicationSchema = new mongoose.Schema({
     owner: {
         type: String
     },
+    ownerImage: {
+        type: String
+    },
     description: {
         type: String
     },

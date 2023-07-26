@@ -14,9 +14,31 @@ export class PostDetailsComponent {
 
   postId: any = this.route.snapshot.paramMap.get('id');
 
+  user: {_id: ''} = this.cookie.getCookie('user');
+
+  userId: any = '';
+
+  messageToUser: string = '';
+
   showEditArea: boolean = false;
 
+  postDetails: any = '';
+
   resMessage: any = '';
+
+  ngOnInit() {
+
+    if (this.user) {
+      this.userId = this.user._id;
+    }
+
+    this.pubService.getPostById(this.postId).subscribe(res => {
+
+      this.postDetails = res;
+
+    })
+
+  }
 
   deletePost() {
 
@@ -39,12 +61,50 @@ export class PostDetailsComponent {
       setTimeout(() => {
 
         this.resMessage = '';
-        this.router.navigate([`p/${this.postId}`]);
+        this.router.navigateByUrl(`p/${this.postId}`);
         this.showEditArea = false;
       }, 2000);
 
     });
 
+  }
+
+  like() {
+
+   
+    if (Object.keys(this.user).length) {
+
+      
+    } else {
+
+      this.messageToUser = 'За да може да харесвате, трябва да се логнете в сайта.';
+
+      setTimeout(() => { this.messageToUser = '' }, 2000)
+    }
+
+  }
+
+  coment() {
+    if (Object.keys(this.user).length) {
+
+    } else {
+
+      this.messageToUser = 'За да може да коментирате, трябва да се логнете в сайта.';
+
+      setTimeout(() => { this.messageToUser = '' }, 2000)
+    }
+  }
+
+  sendComent(event: any) {
+
+    if (Object.keys(this.user).length) {
+      console.log(event.value);
+    } else {
+
+      this.messageToUser = 'За да може да коментирате, трябва да се логнете в сайта.';
+
+      setTimeout(() => { this.messageToUser = '' }, 2000);
+    }
   }
 
 }
