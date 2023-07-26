@@ -3,7 +3,12 @@
     <div *ngFor="let pub of AllPublications" class="publication">
         <a routerLink="/p/{{pub._id}}">
             <div class="pub-image">
-                <img src="http://localhost:3000/userPublications/{{pub.fileName}}" alt="">
+                <img *ngIf="pub.type === 'image/jpeg'" src="http://localhost:3000/userPublications/{{pub.fileName}}"
+                    alt="">
+
+                <video *ngIf="pub.type === 'video/x-matroska'" width="100%" height="auto" controls>
+                    <source src="http://localhost:3000/userPublications/{{pub.fileName}}" type="video/mp4">
+                </video>
             </div>
         </a>
     </div>

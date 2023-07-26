@@ -2,10 +2,15 @@
 
 .post-details {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-top: 5em;
     flex-wrap: wrap;
+}
+
+video {
+    object-fit: fill;
 }
 
 #resMessage {
@@ -177,5 +182,6 @@ form {
 
 .coments-bar p {
     font-size: 14px;
+    color: red;
     text-align: center;
 }

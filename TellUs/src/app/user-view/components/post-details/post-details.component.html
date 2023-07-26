@@ -1,7 +1,10 @@
 <div class="post-details">
-    <div class="post-image">
+    <div *ngIf="postDetails.type == 'image/jpeg'" class="post-image">
         <img src="http://localhost:3000/userPublications/{{postDetails.fileName}}" alt="">
     </div>
+    <video *ngIf="postDetails.type === 'video/x-matroska'" autoplay class="post-image" width="100%" height="auto" controls>
+        <source src="http://localhost:3000/userPublications/{{postDetails.fileName}}" type="video/mp4">
+    </video>
     <div class="post-data">
 
         <div class="profile-data">

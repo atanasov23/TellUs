@@ -31,5 +31,6 @@ p {
     margin: 0;
 }
 
-
-
+video {
+    object-fit: fill;
+}
