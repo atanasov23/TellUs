@@ -92,11 +92,25 @@ router.get('/allPosts', async (req, res) => {
 
 });
 
-router.get('/getPostById/:postId', async (req,res) => {
+router.get('/getPostById/:postId', async (req, res) => {
 
     const post = await publicationsServices.getPostById(req.params.postId);
 
     res.send(post);
 });
+
+router.post('/like/:postId', async (req, res) => {
+
+    await publicationsServices.like(req.params.postId);
+
+    res.send()
+});
+
+router.post('/coment', async (req, res) => {
+
+    const post = await publicationsServices.coment(req.body);
+
+    res.send(post.comments);
+})
 
 module.exports = router;

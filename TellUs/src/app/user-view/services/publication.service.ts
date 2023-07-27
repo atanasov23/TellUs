@@ -8,7 +8,7 @@ import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
 export class PublicationService {
 
   constructor(private http: HttpClient, private cookie: GetCookieService) { }
-  
+
   publication(inputData: any, formData: any) {
 
 
@@ -41,5 +41,14 @@ export class PublicationService {
 
   getAllPost() {
     return this.http.get(`http://localhost:3000/allPosts`);
+  }
+
+  like(postId: any) {
+    return this.http.post(`http://localhost:3000/like/${postId}`, {});
+  }
+
+  coment(data: any){
+
+    return this.http.post(`http://localhost:3000/coment`, data);
   }
 }

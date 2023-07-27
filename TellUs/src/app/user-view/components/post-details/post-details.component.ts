@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PublicationService } from '../../services/publication.service';
 import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-post-details',
@@ -14,7 +15,7 @@ export class PostDetailsComponent {
 
   postId: any = this.route.snapshot.paramMap.get('id');
 
-  user: {_id: ''} = this.cookie.getCookie('user');
+  user: { _id: '', profileImage: '' } = this.cookie.getCookie('user');
 
   userId: any = '';
 
@@ -26,6 +27,10 @@ export class PostDetailsComponent {
 
   resMessage: any = '';
 
+  behaviorSubjectLike = new BehaviorSubject(this.postDetails.likes);
+
+  behaviorSubjectComents = new BehaviorSubject(this.postDetails.comments);
+
   ngOnInit() {
 
     if (this.user) {
@@ -35,6 +40,10 @@ export class PostDetailsComponent {
     this.pubService.getPostById(this.postId).subscribe(res => {
 
       this.postDetails = res;
+
+      this.behaviorSubjectLike.next(this.postDetails.likes);
+
+      this.behaviorSubjectComents.next(this.postDetails.comments);
 
     })
 
@@ -71,10 +80,17 @@ export class PostDetailsComponent {
 
   like() {
 
-   
     if (Object.keys(this.user).length) {
 
-      
+      this.pubService.like(this.postDetails._id).subscribe(res => { });
+
+      let oldValue = this.behaviorSubjectLike.getValue();
+
+      oldValue++;
+
+      this.behaviorSubjectLike.next(oldValue);
+
+
     } else {
 
       this.messageToUser = 'За да може да харесвате, трябва да се логнете в сайта.';
@@ -87,6 +103,7 @@ export class PostDetailsComponent {
   coment() {
     if (Object.keys(this.user).length) {
 
+
     } else {
 
       this.messageToUser = 'За да може да коментирате, трябва да се логнете в сайта.';
@@ -97,8 +114,23 @@ export class PostDetailsComponent {
 
   sendComent(event: any) {
 
+    const comentValue = event.value;
+
     if (Object.keys(this.user).length) {
-      console.log(event.value);
+
+      const dataObj = {
+        coment: comentValue.coment,
+        user: this.user._id,
+        userImage: this.user.profileImage,
+        postId: this.postDetails._id
+      }
+
+      this.pubService.coment(dataObj).subscribe(res => {
+
+        this.behaviorSubjectComents.next(res);
+
+      });
+
     } else {
 
       this.messageToUser = 'За да може да коментирате, трябва да се логнете в сайта.';

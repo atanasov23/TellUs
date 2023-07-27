@@ -20,9 +20,9 @@ const publicationSchema = new mongoose.Schema({
     comments: [{
         type: Object
     }],
-    likes: [{
-        type: Object
-    }]
+    likes: {
+        type: Number
+    }
 
 });
 

@@ -8,7 +8,6 @@ import { PublicationService } from '../../services/publication.service';
 })
 export class MainPostViewComponent {
 
-
   AllPublications: any = [];
 
   constructor(private pubService: PublicationService) { }

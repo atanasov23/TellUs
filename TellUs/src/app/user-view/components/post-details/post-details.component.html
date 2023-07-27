@@ -2,7 +2,7 @@
     <div *ngIf="postDetails.type == 'image/jpeg'" class="post-image">
         <img src="http://localhost:3000/userPublications/{{postDetails.fileName}}" alt="">
     </div>
-    <video *ngIf="postDetails.type === 'video/x-matroska'" autoplay class="post-image" width="100%" height="auto" controls>
+    <video *ngIf="postDetails.type === 'video/mp4'" autoplay class="post-image" width="100%" height="auto" controls>
         <source src="http://localhost:3000/userPublications/{{postDetails.fileName}}" type="video/mp4">
     </video>
     <div class="post-data">
@@ -31,12 +31,12 @@
         <hr>
         <div class="coments-bar">
            
-            <div *ngFor="let coment of postDetails.comments" class="coment">
+            <div *ngFor="let coment of behaviorSubjectComents.getValue()" class="coment">
                 <div class="user">
-                    <img src="../../../../assets/image/357360533_781266310112576_3719100550210729241_n.jpg" alt="">
+                    <img src="http://localhost:3000/usersProfileImage/{{coment.userImage}}" alt="">
                 </div>
                 <div class="coment">
-                    <p>adawdaawd</p>
+                    <p>{{coment.coment}}</p>
                 </div>
             </div>
             <p *ngIf="!postDetails.comments?.length">Няма коментари..</p>
@@ -47,7 +47,7 @@
         <div class="post-btn">
             <button *ngIf="postDetails.owner !== user._id" (click)="like()"><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></button>
             <button *ngIf="postDetails.owner !== user._id" (click)="coment()"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></button>
-            <p>{{postDetails.likes?.length}} харесвания</p>
+            <p>{{behaviorSubjectLike.getValue()}} харесвания</p>
         </div>
         
         <hr>

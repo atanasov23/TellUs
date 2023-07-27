@@ -12,7 +12,8 @@ const publication = async (username, pubData, fileName, fileType, profileImage) 
         owner: username,
         fileName: fileName,
         type: fileType,
-        ownerImage: profileImage
+        ownerImage: profileImage,
+        likes: 0
     });
 
     userData.myPublications.push(addingPublication._id);
@@ -54,17 +55,37 @@ const deletePost = async (postId, userId) => {
 
 const editPost = async (postId, text) => {
 
-    return await PublicationsModel.findByIdAndUpdate(postId, {"description": text});
+    return await PublicationsModel.findByIdAndUpdate(postId, { "description": text });
 }
 
 
 const getAllPosts = async () => {
 
-   return await PublicationsModel.find();
+    return await PublicationsModel.find();
 }
 
 const getPostById = async (postId) => {
     return await PublicationsModel.findById(postId);
+}
+
+
+const like = async (postId) => {
+    const post = await PublicationsModel.findById(postId);
+
+    post.likes += 1;
+
+    post.save();
+}
+
+const coment = async (data) => {
+
+    const post = await PublicationsModel.findById(data.postId);
+
+    post.comments.push(data);
+
+    post.save();
+
+    return post;
 }
 
 
@@ -74,5 +95,7 @@ module.exports = {
     deletePost,
     editPost,
     getAllPosts,
-    getPostById
+    getPostById,
+    like,
+    coment
 }
