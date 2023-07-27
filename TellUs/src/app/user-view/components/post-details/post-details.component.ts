@@ -25,11 +25,15 @@ export class PostDetailsComponent {
 
   postDetails: any = '';
 
-  resMessage: any = '';
+  resMessage: any = {
+    message: '',
+  };
 
   behaviorSubjectLike = new BehaviorSubject(this.postDetails.likes);
 
   behaviorSubjectComents = new BehaviorSubject(this.postDetails.comments);
+
+  behaviorSubjectEdit = new BehaviorSubject(this.postDetails.description);
 
   ngOnInit() {
 
@@ -44,6 +48,8 @@ export class PostDetailsComponent {
       this.behaviorSubjectLike.next(this.postDetails.likes);
 
       this.behaviorSubjectComents.next(this.postDetails.comments);
+
+      this.behaviorSubjectEdit.next(this.postDetails.description);
 
     })
 
@@ -66,6 +72,8 @@ export class PostDetailsComponent {
     this.pubService.editPost(this.postId, event.value).subscribe(res => {
 
       this.resMessage = res;
+
+      this.behaviorSubjectEdit.next(event.value.editText);
 
       setTimeout(() => {
 
