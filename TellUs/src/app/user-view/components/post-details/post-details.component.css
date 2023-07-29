@@ -99,9 +99,17 @@ input[type=text] {
     outline: none;
 }
 
-form {
+.add-coment form {
+    display: flex;
+    margin-top: 0.5em;
+    margin-left: 1em;
+    width: 300px;
+}
+
+.add-coment{
     display: flex;
 }
+
 
 #publicationBtn {
     height: 35px;

@@ -39,7 +39,7 @@
                     <p>{{coment.coment}}</p>
                 </div>
             </div>
-            <p *ngIf="!postDetails.comments?.length">Няма коментари..</p>
+            <p *ngIf="!behaviorSubjectComents.getValue()?.length">Все още няма коментари..</p>
 
         </div>
         <hr>
@@ -47,7 +47,7 @@
         <div class="post-btn">
             <button *ngIf="postDetails.owner !== user._id" (click)="like()"><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></button>
             <button *ngIf="postDetails.owner !== user._id" (click)="disLike()"><i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i></button>
-            <button *ngIf="postDetails.owner !== user._id" (click)="coment()"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></button>
+            <label *ngIf="postDetails.owner !== user._id"(click)="coment()" for="coment"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></label>
             <p>{{behaviorSubjectLike.getValue()}} харесвания</p>
             <p>{{behaviorSubjectDisLike.getValue()}} нехаресвания</p>
         </div>
@@ -55,8 +55,9 @@
         <hr>
         <p id="messageToUser">{{messageToUser}}</p>
         <div *ngIf="postDetails.owner !== user._id"class="add-coment">
+            <app-user-profile-image></app-user-profile-image>
             <form #form="ngForm" (ngSubmit)="sendComent(form)">
-                <input type="text" placeholder="Добавяне на коментар.." name=coment ngModel>
+                <input type="text" placeholder="Добавяне на коментар.." name=coment id="coment" ngModel>
                 <button id="publicationBtn"><i class="fa fa-paper-plane-o fa-2x" aria-hidden="true"></i></button>
             </form>
         </div>

@@ -135,14 +135,11 @@ export class PostDetailsComponent {
   }
 
   coment() {
-    if (Object.keys(this.user).length) {
+    if (Object.keys(this.user).length === 0) {
 
+       this.messageToUser = 'За да може да коментирате, трябва да се логнете в сайта.';
 
-    } else {
-
-      this.messageToUser = 'За да може да коментирате, трябва да се логнете в сайта.';
-
-      setTimeout(() => { this.messageToUser = '' }, 2000)
+      setTimeout(() => { this.messageToUser = '' }, 2000);
     }
   }
 
