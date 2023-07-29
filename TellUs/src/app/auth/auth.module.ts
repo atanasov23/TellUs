@@ -21,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserAuthService, InputValidationService],
-  exports: [LoginComponent, RegisterComponent]
+  providers: [UserAuthService, InputValidationService]
 })
 export class AuthModule { }

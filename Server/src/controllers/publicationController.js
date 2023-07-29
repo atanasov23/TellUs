@@ -106,6 +106,13 @@ router.post('/like/:postId', async (req, res) => {
     res.send()
 });
 
+router.post('/disLike/:postId', async ( req, res ) => {
+
+    await publicationsServices.disLike(req.params.postId);
+
+    res.send();
+})
+
 router.post('/coment', async (req, res) => {
 
     const post = await publicationsServices.coment(req.body);

@@ -13,6 +13,8 @@ p {
     align-items: center;
     flex-wrap: wrap;
     margin-top: 5em;
+    margin-left: 20em;
+    margin-right: 20em;
 }
 
 .publication {
@@ -22,8 +24,8 @@ p {
 .pub-image {
     display: flex;
     margin: 0;
-    width: 250px;
-    height: 300px;
+    width: 230px;
+    height: 270px;
 }
 
 .pub-image img {
@@ -39,7 +41,7 @@ video {
 
 .icon{
     position: absolute;
-    margin-left: 12em;
+    margin-left: 11.5em;
     margin-top: 1em;
 }
 

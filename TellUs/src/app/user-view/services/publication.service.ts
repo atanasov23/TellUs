@@ -47,6 +47,10 @@ export class PublicationService {
     return this.http.post(`http://localhost:3000/like/${postId}`, {});
   }
 
+  disLike(postId: any){
+    return this.http.post(`http://localhost:3000/disLike/${postId}`, {});
+  }
+
   coment(data: any){
 
     return this.http.post(`http://localhost:3000/coment`, data);

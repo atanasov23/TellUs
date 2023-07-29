@@ -31,6 +31,8 @@ export class PostDetailsComponent {
 
   behaviorSubjectLike = new BehaviorSubject(this.postDetails.likes);
 
+  behaviorSubjectDisLike = new BehaviorSubject(this.postDetails.likes);
+
   behaviorSubjectComents = new BehaviorSubject(this.postDetails.comments);
 
   behaviorSubjectEdit = new BehaviorSubject(this.postDetails.description);
@@ -46,6 +48,8 @@ export class PostDetailsComponent {
       this.postDetails = res;
 
       this.behaviorSubjectLike.next(this.postDetails.likes);
+
+      this.behaviorSubjectDisLike.next(this.postDetails.disLikes);
 
       this.behaviorSubjectComents.next(this.postDetails.comments);
 
@@ -101,7 +105,29 @@ export class PostDetailsComponent {
 
     } else {
 
-      this.messageToUser = 'За да може да харесвате, трябва да се логнете в сайта.';
+      this.messageToUser = 'Трябва да се логнете в сайта.';
+
+      setTimeout(() => { this.messageToUser = '' }, 2000)
+    }
+
+  }
+
+  disLike() {
+
+    if (Object.keys(this.user).length) {
+
+      this.pubService.disLike(this.postDetails._id).subscribe(res => { });
+
+      let oldValue = this.behaviorSubjectDisLike.getValue();
+
+      oldValue++;
+
+      this.behaviorSubjectDisLike.next(oldValue);
+
+
+    } else {
+
+      this.messageToUser = 'Трябва да се логнете в сайта.';
 
       setTimeout(() => { this.messageToUser = '' }, 2000)
     }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
 
@@ -10,7 +11,7 @@ export class UserDataService {
 
   public changeProfileImage: BehaviorSubject<any> = new BehaviorSubject<any>('');
 
-  constructor(private http: HttpClient, private cookie: GetCookieService) { }
+  constructor(private http: HttpClient, private cookie: GetCookieService, private route: Router) { }
 
   username: string = '';
 
@@ -43,6 +44,10 @@ export class UserDataService {
   }
 
   updateUserData(inputData: any) {
+
+    setTimeout(() => {
+      this.route.navigateByUrl('login');
+    }, 2000);
 
     return this.http.post(`http://localhost:3000/user/edit/${this.cookie.getCookie('user')._id}`, inputData);
   }

@@ -22,6 +22,9 @@ const publicationSchema = new mongoose.Schema({
     }],
     likes: {
         type: Number
+    },
+    disLikes: {
+        type: Number
     }
 
 });

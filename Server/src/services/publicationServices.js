@@ -13,7 +13,8 @@ const publication = async (username, pubData, fileName, fileType, profileImage) 
         fileName: fileName,
         type: fileType,
         ownerImage: profileImage,
-        likes: 0
+        likes: 0,
+        disLikes: 0
     });
 
     userData.myPublications.push(addingPublication._id);
@@ -77,6 +78,14 @@ const like = async (postId) => {
     post.save();
 }
 
+const disLike = async (postId) => {
+    const post = await PublicationsModel.findById(postId);
+
+    post.disLikes += 1;
+
+    post.save();
+}
+
 const coment = async (data) => {
 
     const post = await PublicationsModel.findById(data.postId);
@@ -97,5 +106,6 @@ module.exports = {
     getAllPosts,
     getPostById,
     like,
+    disLike,
     coment
 }
