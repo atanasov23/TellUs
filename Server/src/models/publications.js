@@ -25,7 +25,7 @@ const publicationSchema = new mongoose.Schema({
     },
     disLikes: {
         type: Number
-    }
+    },
 
 });
 

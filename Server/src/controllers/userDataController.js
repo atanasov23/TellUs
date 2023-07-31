@@ -114,4 +114,13 @@ router.post('/delete', async (req, res) => {
 
 });
 
+/* router.post('/getMyNotification/:id', async  (req,res) => {
+
+    const result = await userData.getMyNotification(req.params.id, req.body)
+
+    const response = result.notification;
+
+    res.json(response);
+}) */
+
 module.exports = router;

@@ -13,15 +13,16 @@ export class NavigationComponent {
 
   loggedInUser: boolean = this.authUser.isLoggedIn();
 
+  notification: any = [];
+
   constructor(private authUser: AuthService, private route: Router, private cookieService: CookieService, private behaviorSubject: UserDataService) {
 
-   this.authUser.isUserLoggedIn.subscribe(value => {
+    this.authUser.isUserLoggedIn.subscribe(value => {
       this.loggedInUser = value;
     });
-
   }
 
-  logout(){
+  logout() {
     this.authUser.isUserLoggedIn.next(false);
     this.behaviorSubject.changeProfileImage.next('');
     this.cookieService.delete('token');

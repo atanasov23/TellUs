@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { PublicationService } from '../../services/publication.service';
 import { Router } from '@angular/router';
+import { io } from "socket.io-client";
+import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-creation',
@@ -9,7 +12,9 @@ import { Router } from '@angular/router';
 })
 export class CreationComponent {
 
-  constructor(private publicationService: PublicationService, private route: Router) { }
+  constructor(private http: HttpClient, private cookie: GetCookieService, private publicationService: PublicationService, private route: Router) { }
+
+  /* socket = io('http://localhost:1000'); */
 
   formData: any = undefined;
 
@@ -48,12 +53,26 @@ export class CreationComponent {
     } else {
 
       this.publicationService.publication(inputData, this.formData).subscribe(res => {
-        
+
         this.errorMessage = res.message;
 
-        setTimeout(() => { this.errorMessage = ''
-        this.route.navigateByUrl('/');
-      }, 3000);
+        const data = {
+          post: res.data,
+          user: this.cookie.getCookie('user')
+        }
+
+        this.http.post('http://localhost:2000', data).subscribe(res => res);
+
+      /*   this.socket.emit('create', data);
+
+        this.socket.on('create', (res) => {
+          console.log(res);
+        }) */
+        
+        setTimeout(() => {
+          this.errorMessage = ''
+          this.route.navigateByUrl('/');
+        }, 2000);
 
       });
     }

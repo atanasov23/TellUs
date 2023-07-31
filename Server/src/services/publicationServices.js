@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const PublicationsModel = require('../models/publications');
 
-const publication = async (username, pubData, fileName, fileType, profileImage) => {
+const publication = async (username, pubData, fileName, fileType, profileImage, followers) => {
 
     const user = new User();
 
@@ -14,7 +14,8 @@ const publication = async (username, pubData, fileName, fileType, profileImage) 
         type: fileType,
         ownerImage: profileImage,
         likes: 0,
-        disLikes: 0
+        disLikes: 0,
+        followers
     });
 
     userData.myPublications.push(addingPublication._id);

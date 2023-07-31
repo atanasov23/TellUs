@@ -4,6 +4,8 @@ import { UserAuthService } from '../../services/userAuth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/shared-services/authentication.service';
 import { UserDataService } from 'src/app/user-view/services/user-data.service';
+import { io } from "socket.io-client";
+import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,9 @@ export class LoginComponent {
   };
   userData = {};
 
-  constructor(private router: Router, private login: UserAuthService, private cookieService: CookieService, private authService: AuthService, private behaviorSubject: UserDataService) { }
+  socket = io('http://localhost:1000');
+
+  constructor(private cookie: GetCookieService, private router: Router, private login: UserAuthService, private cookieService: CookieService, private authService: AuthService, private behaviorSubject: UserDataService) { }
 
   onSubmit(event: any) {
     this.userData = event.value;
@@ -33,6 +37,7 @@ export class LoginComponent {
 
       this.authService.isUserLoggedIn.next(true);
       this.behaviorSubject.changeProfileImage.next(this.token.user.profileImage);
+
       this.router.navigateByUrl('/')
     }, err => {
       this.errorMessage = err.error.message;

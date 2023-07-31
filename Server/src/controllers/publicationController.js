@@ -10,6 +10,8 @@ router.post('/adding', async (req, res) => {
 
     const username = req.query.username;
 
+    const followers = req.followers
+
     const userProfileImage = req.query.profileImage;
 
     const inputData = req.query.inputData;
@@ -19,11 +21,12 @@ router.post('/adding', async (req, res) => {
     const fileType = file.mimetype;
 
     try {
-        await publicationsServices.publication(username, inputData, fileName, fileType, userProfileImage);
+        const result = await publicationsServices.publication(username, inputData, fileName, fileType, userProfileImage, followers);
 
         file.mv(`./src/public/userPublications/${fileName}`);
 
         res.status(200).send({
+            data: result,
             message: "Публикуването е успешно.",
         });
 

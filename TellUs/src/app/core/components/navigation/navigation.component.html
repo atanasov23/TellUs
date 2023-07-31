@@ -6,7 +6,7 @@
     <a *ngIf="!loggedInUser" routerLink="/login"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>Вход</a>
     <a *ngIf="!loggedInUser" routerLink="/register"><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>Регистрация</a>
     <a *ngIf="loggedInUser" routerLink="/messages"><i class="fa fa-commenting-o fa-lg" aria-hidden="true"></i>Съобщения</a>
-    <a *ngIf="loggedInUser" routerLink="/notification"><i class="fa fa-bell fa-lg" aria-hidden="true"></i>Известия</a>
+    <a *ngIf="loggedInUser" routerLink="/notification"><p>{{notification.length}}</p><i class="fa fa-bell fa-lg" aria-hidden="true"></i>Известия</a>
     <a *ngIf="loggedInUser" routerLink="/creation"><i class="fa fa-plus fa-lg" aria-hidden="true"></i>Създаване</a>
     <a *ngIf="loggedInUser" routerLink="/profile"><i class="fa fa-user fa-lg" aria-hidden="true"></i>Профил</a>
     <a routerLink="#" *ngIf="loggedInUser" (click)="logout()"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>Изход</a>

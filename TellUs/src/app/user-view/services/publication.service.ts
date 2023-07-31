@@ -11,13 +11,13 @@ export class PublicationService {
 
   publication(inputData: any, formData: any) {
 
-
     const userData = this.cookie.getCookie('user');
 
     const params = new HttpParams()
       .append("inputData", inputData.description)
       .append("username", userData._id)
-      .append("profileImage", userData.profileImage);
+      .append("profileImage", userData.profileImage)
+      .append("followers", userData.followers)
     return this.http.post<any>(`http://localhost:3000/adding`, formData, { params });
   }
 
