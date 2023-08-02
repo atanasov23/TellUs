@@ -1,8 +1,21 @@
 const router = require('express').Router();
-const { log } = require('console');
 const publicationsServices = require('../services/publicationServices');
 const fs = require('fs');
 
+router.post('/addingNotification', async (req, res) => {
+
+    const result = await publicationsServices.addNotification(req.body);
+
+    res.send(result);
+})
+
+router.get('/getNotification', async (req, res) => {
+
+    const result = await publicationsServices.getNotification();
+
+    res.send(result);
+
+})
 
 router.post('/adding', async (req, res) => {
 

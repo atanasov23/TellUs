@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PublicationService } from '../../services/publication.service';
-import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
+import { GetCookieService } from 'src/app/services/get-cookie.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 

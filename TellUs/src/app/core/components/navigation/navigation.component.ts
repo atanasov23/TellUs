@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/shared-services/authentication.service';
+import { AuthService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { UserDataService } from 'src/app/user-view/services/user-data.service';
+import { io } from "socket.io-client";
+import { workers } from '../../../webWorkers/workers';
 
 @Component({
   selector: 'app-navigation',
@@ -22,7 +24,20 @@ export class NavigationComponent {
     });
   }
 
+/*   socket = io('http://localhost:1000'); */
+
+  notificationResponse: any = '';
+
+ /*  ngOnInit() {
+
+    this.socket.on('conn', (res) => {
+      this.notificationResponse = res;
+      console.log(res);
+    })
+  } */
+
   logout() {
+    workers.notificationWorker.terminate();
     this.authUser.isUserLoggedIn.next(false);
     this.behaviorSubject.changeProfileImage.next('');
     this.cookieService.delete('token');

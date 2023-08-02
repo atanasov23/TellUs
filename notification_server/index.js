@@ -7,15 +7,21 @@ const io = require('socket.io')(server, { cors: { origin: "*" } });
 
 let notification = [];
 
+let user = [];
+
 app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
 
-app.post('/', (req, res) => {
+app.post('/:id', (req, res) => {
 
-    const data = req.body
+    const data = req.body;
+
+    const userId = req.params.id;
+
+    data.id = userId;
 
     notification.push(data);
 
@@ -29,25 +35,68 @@ app.post('/', (req, res) => {
     .then(res => res);
 } */
 
-io.on('connection', (socket) => {
-    
+io.on('connection', async (socket) => {
 
-/*     const allPost = await fetchData();
+
+    /* const allPost = await fetchData(); */
 
     socket.on('conn', (res) => {
 
-       notification.push(res);
+        const userId = res;
+        const socketId = socket.id;
 
-        io.emit('create',res) 
-         io.emit('conn', notification);
+        /*   user.push({
+              userId,
+              socketId
+          }); */
 
-    }) */
+        user = [{
+            userId,
+            socketId
+        }]
 
-    setInterval(() => {
-        io.emit('conn', notification);
-    },10000)
-    
-    
+        let notificationForSend = [];
+        setInterval(() => {
+
+            console.log(200);
+
+
+
+            for (let el of notification) {
+
+            
+                for (let followers of el.user.followers) {
+
+                    if (followers == userId) {
+
+                        if (el.id !== userId) {
+
+                            /* io.emit('conn', user); */
+                            notificationForSend.push(el.post);
+
+                        }
+
+                        /* io.sockets.to(socketId).emit('conn', el.post); */
+                    }
+
+                }
+
+            }
+
+            socket.broadcast.emit('conn', notificationForSend);
+
+            notificationForSend = [];
+        }, 10000)
+
+        /*   setInterval(() => {
+              io.emit('conn', user);
+          }, 10000) */
+
+    })
+
+
+
+
 })
 
 app.listen(2000);

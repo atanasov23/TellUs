@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
+import { GetCookieService } from 'src/app/services/get-cookie.service';
 import { UserDataService } from '../../services/user-data.service';
 import { CookieService } from 'ngx-cookie-service';
 

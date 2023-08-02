@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const PublicationsModel = require('../models/publications');
+const NotificationModel = require('../models/notification');
 
 const publication = async (username, pubData, fileName, fileType, profileImage, followers) => {
 
@@ -98,6 +99,18 @@ const coment = async (data) => {
     return post;
 }
 
+const addNotification = async (data) => {
+
+   return await NotificationModel.create(data);
+
+}
+
+const getNotification = async () => {
+
+    return await NotificationModel.find();
+
+}
+
 
 module.exports = {
     publication,
@@ -108,5 +121,8 @@ module.exports = {
     getPostById,
     like,
     disLike,
-    coment
+    coment,
+    addNotification,
+    getNotification
+
 }

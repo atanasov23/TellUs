@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
+import { GetCookieService } from 'src/app/services/get-cookie.service';
 
 @Injectable({
   providedIn: 'root'

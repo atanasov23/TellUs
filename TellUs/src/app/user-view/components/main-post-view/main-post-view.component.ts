@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { PublicationService } from '../../services/publication.service';
+import { PublicationService } from '../../services/publication.service'
+
 
 @Component({
   selector: 'app-main-post-view',
@@ -9,10 +10,12 @@ import { PublicationService } from '../../services/publication.service';
 export class MainPostViewComponent {
 
   AllPublications: any = [];
-
+  
+  
   constructor(private pubService: PublicationService) { }
 
   ngOnInit() {
+    
 
     this.pubService.getAllPost().subscribe(res => this.AllPublications = res);
 

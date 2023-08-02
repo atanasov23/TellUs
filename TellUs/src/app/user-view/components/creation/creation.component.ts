@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PublicationService } from '../../services/publication.service';
 import { Router } from '@angular/router';
 import { io } from "socket.io-client";
-import { GetCookieService } from 'src/app/shared-services/get-cookie.service';
+import { GetCookieService } from 'src/app/services/get-cookie.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -61,14 +61,8 @@ export class CreationComponent {
           user: this.cookie.getCookie('user')
         }
 
-        this.http.post('http://localhost:2000', data).subscribe(res => res);
+        this.http.post(`http://localhost:3000/addingNotification`, data).subscribe(res => res);
 
-      /*   this.socket.emit('create', data);
-
-        this.socket.on('create', (res) => {
-          console.log(res);
-        }) */
-        
         setTimeout(() => {
           this.errorMessage = ''
           this.route.navigateByUrl('/');
