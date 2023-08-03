@@ -9,12 +9,12 @@
 
         <div class="profile-data">
             <div class="ownerData">
-                <div class="profile-image">
+                <a routerLink="/user/{{postDetails.owner}}">  <div class="profile-image">
                     <div *ngIf="postDetails.ownerImage === ''" class="noImage">
                         <i class="fa fa-picture-o fa-lg" aria-hidden="true" style="color:black"></i>
                     </div>
                     <img *ngIf="postDetails.ownerImage !== ''" src="http://localhost:3000/usersProfileImage/{{postDetails.ownerImage}}" alt="">
-                </div>
+                </div></a>
             </div>
 
             <p>{{behaviorSubjectEdit.getValue()}}</p>

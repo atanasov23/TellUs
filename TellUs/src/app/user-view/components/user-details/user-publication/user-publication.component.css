@@ -1,0 +1,26 @@
+.user-publications {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 20em;
+    margin-right: 20em;
+}
+
+.publication {
+    margin: 0.2em;
+}
+
+.pub-image {
+    display: flex;
+    margin: 0;
+    width: 230px;
+    height: 270px;
+}
+
+.pub-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}

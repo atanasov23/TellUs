@@ -10,6 +10,12 @@ const getUserData = async (username) => {
     return await User.findOne({ username: username }).lean();
 }
 
+const getUser = async (id) => {
+
+    return await User.findById(id).lean();
+
+}
+
 const updateUserData = async (id, data) => {
 
     const newData = data;
@@ -52,5 +58,6 @@ module.exports = {
     deleteImage,
     getOldImageName,
     updateUserData,
-    getMyNotification
+    getMyNotification,
+    getUser
 }

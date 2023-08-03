@@ -1,0 +1,28 @@
+<div class="data-view">
+    <!-- <app-user-profile-image></app-user-profile-image> -->
+    <div class="profile-image">
+        <div *ngIf="userData.profileImage === ''" class="noImage">
+            <i class="fa fa-picture-o fa-lg" aria-hidden="true" style="color:black"></i>
+        </div>
+        <img *ngIf="userData.profileImage !== ''" src="http://localhost:3000/usersProfileImage/{{userData.profileImage}}" alt="">
+    </div>
+
+    <div class="profile-data">
+        <div class="user-edit">
+            <p>{{userData.username}}</p>
+            <a *ngIf="this.logUser._id !== userData._id" routerLink="edit" id="edit">Последване</a>
+            <a *ngIf="this.logUser._id !== userData._id" routerLink="message" id="edit">Съобщение</a>
+        </div>
+
+        <div class="user-info">
+            <a routerLink="publication/{{userData._id}}"><p>{{userData.myPublications.length}} публикации</p></a>
+            <a routerLink="followers"><p>{{userData.followers.length}} последователи</p></a>
+            <a routerLink="#"><p>{{userData.followed.length}} последвани</p></a>
+        </div>
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<hr>

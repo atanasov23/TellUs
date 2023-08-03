@@ -20,6 +20,13 @@ router.get('/:username', async (req, res) => {
     res.send(user);
 });
 
+router.get('/getUser/:id', async (req, res) => {
+
+    const user = await userData.getUser(req.params.id);
+
+    res.send(user);
+})
+
 router.post('/add/:userId', async (req, res) => {
 
     const file = req.files.image;

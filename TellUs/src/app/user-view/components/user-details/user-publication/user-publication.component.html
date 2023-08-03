@@ -1,0 +1,10 @@
+<p *ngIf="userPublication.length === 0">Нямате публикации...</p>
+<div class="user-publications">
+    <div *ngFor="let pub of userPublication" class="pub">
+        <a routerLink="/p/{{pub._id}}">
+            <div class="pub-image">
+                <img src="http://localhost:3000/userPublications/{{pub.fileName}}" alt="">
+            </div>
+        </a>
+    </div>
+</div>
