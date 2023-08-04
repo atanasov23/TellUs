@@ -121,13 +121,22 @@ router.post('/delete', async (req, res) => {
 
 });
 
-/* router.post('/getMyNotification/:id', async  (req,res) => {
+router.post('/follow', async ( req, res ) => {
 
-    const result = await userData.getMyNotification(req.params.id, req.body)
+    const result = await userData.follow(req.body);
 
-    const response = result.notification;
+    res.send({})
+    
+})
 
-    res.json(response);
-}) */
+router.post('/unFollow', async ( req, res ) => {
+
+    console.log('da');
+
+    const result = await userData.unFollow(req.body);
+
+    res.send({})
+    
+})
 
 module.exports = router;

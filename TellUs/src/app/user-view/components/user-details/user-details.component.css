@@ -32,6 +32,11 @@
     flex-wrap: wrap;
 }
 
+.user-edit a p {
+    position: relative;
+    top: -80%;
+}
+
 .user-info {
     display: flex;
 }

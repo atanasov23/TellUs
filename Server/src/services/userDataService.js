@@ -1,5 +1,70 @@
 const User = require('../models/user');
 
+const follow = async (data) => {
+
+   const logUser =  await User.findById(data.logUserId);
+
+   const postOwner = await User.findById(data.postOwnerId);
+
+   logUser.followed.push(data.postOwnerId);
+
+   logUser.save();
+   
+   postOwner.followers.push(data.logUserId);
+
+   postOwner.save();
+
+
+}
+
+const unFollow = async (data) => {
+
+    const logUser =  await User.findById(data.logUserId);
+
+    const postOwner = await User.findById(data.postOwnerId);
+
+    
+    for (let el of logUser.followed) {
+
+        if (String(el) === data.postOwnerId) {
+
+            const index = logUser.followed.indexOf(el);
+
+            logUser.followed.splice(index, 1);
+
+            logUser.save();
+
+        }
+    }
+
+    
+    for (let el of postOwner.followers) {
+
+        if (String(el) === data.logUserId) {
+
+            const index = postOwner.followers.indexOf(el);
+
+            postOwner.followers.splice(index, 1);
+
+            postOwner.save();
+
+        }
+    }
+ 
+  /*   logUser.followed.push(data.postOwnerId);
+ 
+    logUser.save();
+ 
+    
+ 
+    postOwner.followers.push(data.logUserId);
+ 
+    postOwner.save(); */
+ 
+ 
+ }
+ 
+
 const getUserProfileImage = async (username) => {
 
     return await User.findOne({ username: username }).lean();
@@ -59,5 +124,7 @@ module.exports = {
     getOldImageName,
     updateUserData,
     getMyNotification,
-    getUser
+    getUser,
+    follow,
+    unFollow
 }

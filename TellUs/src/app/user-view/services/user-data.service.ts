@@ -73,6 +73,18 @@ export class UserDataService {
   }
 
 
+  follow(logUserId: any, postOwnerId: any){
+
+    return this.http.post(`http://localhost:3000/follow`, {logUserId, postOwnerId});
+  }
+
+  unFollow(logUserId: any, postOwnerId: any){
+
+    return this.http.post(`http://localhost:3000/unFollow`, {logUserId, postOwnerId});
+
+  }
+
+
 
 
 }

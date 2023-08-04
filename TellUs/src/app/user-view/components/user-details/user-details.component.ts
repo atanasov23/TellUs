@@ -23,6 +23,7 @@ export class UserDetailsComponent {
   }
 
   id: any = '';
+  follower: boolean = false;
   userPublication: any = '';
   logUser: any = this.cookie.getCookie('user');
 
@@ -36,6 +37,12 @@ export class UserDetailsComponent {
 
       this.userData = res;
 
+      if (this.userData.followers.includes(this.cookie.getCookie('user')._id)) {
+
+        this.follower = true;
+
+      }
+
       this.pubService.getMyPublications(this.userData.username).subscribe(res => {
 
         this.userPublication = res;
@@ -43,5 +50,26 @@ export class UserDetailsComponent {
       })
     });
 
+  }
+
+  follow() {
+
+    if (!this.follower) {
+      this.follower = true;
+
+      this.userService.follow(this.cookie.getCookie('user')._id, this.userData._id,).subscribe(res => { });
+
+    }
+  }
+
+  unFollow() {
+
+    if (this.follower) {
+
+      this.follower = false;
+
+      this.userService.unFollow(this.cookie.getCookie('user')._id, this.userData._id).subscribe(res => { });
+
+    }
   }
 }
