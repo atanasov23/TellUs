@@ -27,7 +27,7 @@ export class UserDetailsComponent {
   userPublication: any = '';
   logUser: any = this.cookie.getCookie('user');
 
-  constructor(private userService: UserDataService, private pubService: PublicationService, private route: ActivatedRoute, private cookie: GetCookieService) { }
+  constructor(private router: Router, private userService: UserDataService, private pubService: PublicationService, private route: ActivatedRoute, private cookie: GetCookieService) { }
 
   ngOnInit() {
 
@@ -36,6 +36,8 @@ export class UserDetailsComponent {
     this.userService.getUser(this.id).subscribe(res => {
 
       this.userData = res;
+
+      this.router.navigateByUrl(`/user/${this.userData._id}/publication/${this.userData._id}`);
 
       if (this.userData.followers.includes(this.cookie.getCookie('user')._id)) {
 

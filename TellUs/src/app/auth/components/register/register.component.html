@@ -3,8 +3,8 @@
     <p>{{errorMessage}}</p>
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <input type="text" name="username" placeholder="Потребителско име" ngModel>
-        <input type="text" name="password" placeholder="Парола" ngModel>
-        <input type="text" name="repeatPassword" placeholder="Повтори паролата" ngModel>
+        <input type="password" name="password" placeholder="Парола" ngModel>
+        <input type="password" name="repeatPassword" placeholder="Повтори паролата" ngModel>
         <input type="text" name="email" placeholder="Имейл" ngModel>
         <button>Регистрация</button>
     </form>

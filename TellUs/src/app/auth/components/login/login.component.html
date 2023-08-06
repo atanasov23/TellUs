@@ -3,7 +3,7 @@
     <p>{{errorMessage}}</p>
     <form #form="ngForm" (ngSubmit)="onSubmit(form)"> 
         <input type="text" placeholder="Потребителско име" name="username" ngModel>
-        <input type="text" placeholder="Парола" name="password" ngModel>
+        <input type="password" placeholder="Парола" name="password" ngModel>
         <button>Вход</button>
     </form>
     <a routerLink="/forgottenPassword">Забравена парола?</a>

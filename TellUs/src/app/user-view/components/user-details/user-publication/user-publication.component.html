@@ -1,4 +1,4 @@
-<p *ngIf="userPublication.length === 0">Нямате публикации...</p>
+<!-- <p *ngIf="userPublication.length === 0">Нямате публикации...</p>
 <div class="user-publications">
     <div *ngFor="let pub of userPublication" class="pub">
         <a routerLink="/p/{{pub._id}}">
@@ -7,4 +7,34 @@
             </div>
         </a>
     </div>
+</div> -->
+<p *ngIf="userPublication.length === 0">Няма публикации...</p>
+<div class="my-publications">
+    <div *ngFor="let pub of userPublication" class="publication">
+        <a routerLink="/p/{{pub._id}}" >
+            <div class="pub-image">
+                <img *ngIf="pub.type === 'image/jpeg'" src="http://localhost:3000/userPublications/{{pub.fileName}}"
+                    alt="">
+                <div class="icon">
+                    <i *ngIf="pub.type === 'video/mp4'" class="fa fa-video-camera fa-2x" aria-hidden="true"
+                        style="color: white;"></i>
+                    <i *ngIf="pub.type === 'image/jpeg'" class="fa fa-picture-o fa-2x" aria-hidden="true"
+                        style="color: white;"></i>
+                </div>
+                <div class="showInfo">
+                    <p><i class="fa fa-thumbs-up" aria-hidden="true" style="color: white;"></i>{{pub.likes}}
+                    </p>
+                    <p><i class="fa fa-thumbs-o-down" aria-hidden="true" style="color: white;"></i>{{pub.disLikes}}
+                    </p>
+                    <p><i class="fa fa-comment" aria-hidden="true" style="color: white;"></i>{{pub.comments.length}}
+                    </p>
+                </div>
+                <video *ngIf="pub.type === 'video/mp4'" width="100%" height="auto" autoplay [muted]="'muted'">
+
+                    <source src="http://localhost:3000/userPublications/{{pub.fileName}}" type="video/mp4">
+                </video>
+            </div>
+        </a>
+    </div>
+    
 </div>

@@ -3,6 +3,22 @@ const userData = require('../services/userDataService');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 
+router.get('/getFollowed/:id', async (req, res) => {
+
+    const result = await userData.getFollowed(req.params.id);
+
+    res.send(result.followed);
+});
+
+router.get('/getFollowers/:id', async (req, res) => {
+
+    const result = await userData.getFollowers(req.params.id);
+    
+    res.send(result.followers);
+});
+
+
+
 router.get('/getImage/:username', async (req, res) => {
 
     const username = req.params.username;

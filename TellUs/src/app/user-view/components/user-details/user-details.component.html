@@ -12,20 +12,20 @@
         <div class="user-edit">
             <p>{{userData.username}}</p>
             <div *ngIf="this.logUser._id !== userData._id" id="edit">
-                <p *ngIf="!follower" (click)="follow()">Последване</p>
+                <p *ngIf="!follower && this.logUser._id !== undefined" (click)="follow()">Последване</p>
                 <p *ngIf="follower" (click)="unFollow()" style="color: red;">Последван</p>
             </div>
-            <a *ngIf="this.logUser._id !== userData._id" routerLink="message" id="edit">Съобщение</a>
+            <a *ngIf="this.logUser._id !== userData._id && this.logUser._id !== undefined" routerLink="message" id="edit">Съобщение</a>
         </div>
 
         <div class="user-info">
             <a routerLink="publication/{{userData._id}}">
                 <p>{{userData.myPublications.length}} публикации</p>
             </a>
-            <a routerLink="followers">
+            <a routerLink="followers/{{userData._id}}">
                 <p>{{userData.followers.length}} последователи</p>
             </a>
-            <a routerLink="#">
+            <a routerLink="followed/{{userData._id}}">
                 <p>{{userData.followed.length}} последвани</p>
             </a>
         </div>

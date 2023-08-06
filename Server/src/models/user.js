@@ -22,11 +22,11 @@ const userSchema = new mongoose.Schema({
     }],
     followers: [{
         type: Schema.Types.ObjectId,
-        ref: 'Users'
+        ref: 'User'
     }],
     followed: [{
         type: Schema.Types.ObjectId,
-        ref: 'Users'
+        ref: 'User'
     }],
     profileImage: {
         type: String

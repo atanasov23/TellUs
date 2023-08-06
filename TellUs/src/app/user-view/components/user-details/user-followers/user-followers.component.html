@@ -1,0 +1,15 @@
+<div class="myFollowers">
+
+    <div *ngFor="let el of followers" class="followers">
+        <a routerLink="/user/{{el._id}}"> <div class="image">
+            <div *ngIf="el.profileImage === ''" class="noImage">
+                <i class="fa fa-picture-o fa-lg" aria-hidden="true" style="color:black"></i>
+            </div>
+            <img *ngIf="el.profileImage !== ''" src="http://localhost:3000/usersProfileImage/{{el.profileImage}}"
+                alt="">
+    </div>
+    <p>{{el.username}}</p>
+    </a>
+
+</div>
+</div>

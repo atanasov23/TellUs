@@ -22,9 +22,10 @@ export class UserProfileComponent {
 
   ngOnInit() {
 
-    this.router.navigateByUrl('/profile/publications');
 
-    this.userService.getUserData().subscribe(res => { this.userData = res });
+    this.userService.getUserData().subscribe(res => { this.userData = res 
+      this.router.navigateByUrl(`/profile/publications/${this.userData._id}`);
+    });
 
   }
 }

@@ -15,6 +15,18 @@ export class UserDataService {
 
   username: string = '';
 
+  getFollowed(id: any) {
+
+    return this.http.get(`http://localhost:3000/getFollowed/${id}`);
+
+  }
+
+  getFollowers(id: any) {
+
+    return this.http.get(`http://localhost:3000/getFollowers/${id}`);
+
+  }
+
   getUserProfileImage() {
 
     if (this.cookie.getCookie('user')) {

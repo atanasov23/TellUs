@@ -1,5 +1,17 @@
 const User = require('../models/user');
 
+const getFollowed = async (id) => {
+
+    return await User.findById(id).populate('followed').lean();
+
+}
+
+const getFollowers = async (id) => {
+
+    return await User.findById(id).populate('followers').lean();
+
+}
+
 const follow = async (data) => {
 
    const logUser =  await User.findById(data.logUserId);
@@ -50,17 +62,6 @@ const unFollow = async (data) => {
 
         }
     }
- 
-  /*   logUser.followed.push(data.postOwnerId);
- 
-    logUser.save();
- 
-    
- 
-    postOwner.followers.push(data.logUserId);
- 
-    postOwner.save(); */
- 
  
  }
  
@@ -126,5 +127,7 @@ module.exports = {
     getMyNotification,
     getUser,
     follow,
-    unFollow
+    unFollow,
+    getFollowed,
+    getFollowers
 }

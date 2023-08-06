@@ -33,7 +33,11 @@
            
             <div *ngFor="let coment of behaviorSubjectComents.getValue()" class="coment">
                 <div class="user">
-                    <img src="http://localhost:3000/usersProfileImage/{{coment.userImage}}" alt="">
+                    <!-- <img src="http://localhost:3000/usersProfileImage/{{coment.userImage}}" alt=""> -->
+                    <div *ngIf="coment.userImage === ''" class="noImage">
+                        <i class="fa fa-picture-o fa-lg" aria-hidden="true" style="color:black"></i>
+                    </div>
+                    <img *ngIf="coment.userImage !== ''" src="http://localhost:3000/usersProfileImage/{{coment.userImage}}" alt="">
                 </div>
                 <div class="coment">
                     <p>{{coment.coment}}</p>
