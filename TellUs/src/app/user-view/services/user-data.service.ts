@@ -15,6 +15,26 @@ export class UserDataService {
 
   username: string = '';
 
+  getSentMessages(id: any) {
+
+   return this.http.get(`http://localhost:3000/mySentMessages/${id}`);
+
+  }
+
+  getReceivedMessage(id: any) {
+
+    return this.http.get(`http://localhost:3000/myReceivedMessages/${id}`);
+  }
+
+  answerToMessage(msg: any){
+
+    console.log(msg);
+    
+
+    return this.http.post(`http://localhost:3000/answer`, msg);
+
+  }
+
   getFollowed(id: any) {
 
     return this.http.get(`http://localhost:3000/getFollowed/${id}`);
@@ -25,6 +45,10 @@ export class UserDataService {
 
     return this.http.get(`http://localhost:3000/getFollowers/${id}`);
 
+  }
+
+  sendMessage(data: any) {
+    return this.http.post(`http://localhost:3000/sendMessage`, data);
   }
 
   getUserProfileImage() {
@@ -49,13 +73,13 @@ export class UserDataService {
     return this.http.get(`http://localhost:3000/${this.username}`);
   }
 
-  getUser(id: any){
-    
+  getUser(id: any) {
+
     return this.http.get(`http://localhost:3000/getUser/${id}`);
 
   }
 
-  imageAdd(form: any){
+  imageAdd(form: any) {
 
     return this.http.post(`http://localhost:3000/add/${form.userId}`, form.formData);
 
@@ -85,14 +109,14 @@ export class UserDataService {
   }
 
 
-  follow(logUserId: any, postOwnerId: any){
+  follow(logUserId: any, postOwnerId: any) {
 
-    return this.http.post(`http://localhost:3000/follow`, {logUserId, postOwnerId});
+    return this.http.post(`http://localhost:3000/follow`, { logUserId, postOwnerId });
   }
 
-  unFollow(logUserId: any, postOwnerId: any){
+  unFollow(logUserId: any, postOwnerId: any) {
 
-    return this.http.post(`http://localhost:3000/unFollow`, {logUserId, postOwnerId});
+    return this.http.post(`http://localhost:3000/unFollow`, { logUserId, postOwnerId });
 
   }
 

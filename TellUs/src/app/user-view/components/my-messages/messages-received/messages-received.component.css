@@ -1,0 +1,33 @@
+.my-messages{
+    width: 600px;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.messages{
+    display: flex;
+    border: 1px solid #ede8e8;
+    margin: 1em;
+}
+
+.messages p {
+    margin-right: 2em;
+    margin-left: 2em;
+    font-size: 13px;
+}
+
+.messages button {
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 0.8em;
+    background-color: #ede8e8;
+    font-size: 12px;
+    margin: 1em;
+}
+
+form input{
+    width: 250px;
+    margin-right: 1em;
+    border: 1px solid #ede8e8;
+}

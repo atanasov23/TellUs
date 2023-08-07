@@ -1,0 +1,7 @@
+<div class="my-messages">
+    <p *ngIf="mySentMessages.length === 0">Нямате изпратени съобщения</p>
+    <div *ngFor="let el of mySentMessages" class="messages">
+        <p>{{el.msg}}</p>
+        <button (click)="deleteMsg(el.msg)">Изтриване</button>
+    </div>
+</div>

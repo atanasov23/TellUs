@@ -31,6 +31,12 @@ const userSchema = new mongoose.Schema({
     profileImage: {
         type: String
     },
+    sendMessages: [{
+        type: Object
+    }],
+    messageReceived: [{
+        type: Object
+    }]
 });
 
 const User = mongoose.model('User', userSchema);

@@ -1,0 +1,8 @@
+<div class="message-area">
+    <div class="message-field">
+        <form #form="ngForm" (ngSubmit)="sendMessage(form)">
+            <textarea name="msg" id="" cols="30" rows="10" ngModel></textarea>
+            <button>Изпращане</button>
+        </form>
+    </div>
+</div>

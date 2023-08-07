@@ -1,0 +1,26 @@
+.my-messages{
+    width: 500px;
+    margin: auto;
+    margin-top: 1em;
+    font-size: 13px;
+}
+
+.messages{
+    display: flex;
+    border: 1px solid #ede8e8;
+    margin: 1em;
+}
+
+.messages p {
+    margin-right: 2em;
+    margin-left: 2em;
+}
+
+.messages button {
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 0.8em;
+    font-size: 12px;
+    background-color: #ede8e8;
+}

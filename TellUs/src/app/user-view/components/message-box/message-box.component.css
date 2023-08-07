@@ -1,0 +1,18 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form button{
+    background-color: #0095F6;
+    border: none;
+    color: white;
+    margin-top: 1em;
+    height: 40px;
+}
+
+.message-field{
+    width: 500px;
+    margin: auto;
+    margin-top: 2em;
+}

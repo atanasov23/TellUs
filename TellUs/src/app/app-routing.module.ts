@@ -7,9 +7,13 @@ import { CreationComponent } from './user-view/components/creation/creation.comp
 import { PostDetailsComponent } from './user-view/components/post-details/post-details.component';
 import { MainPostViewComponent } from './user-view/components/main-post-view/main-post-view.component';
 import { UserDetailsComponent } from './user-view/components/user-details/user-details.component';
+import { MessageBoxComponent } from './user-view/components/message-box/message-box.component';
+import { MyMessagesComponent } from './user-view/components/my-messages/my-messages.component';
 
 const routes: Routes = [
   { path: '', component: MainPostViewComponent },
+  { path: 'user/:id/message/:id', component: MessageBoxComponent },
+  { path: 'myMessages', component: MyMessagesComponent },
   { path: 'user/:id', component: UserDetailsComponent },
   { path: 'profile', component: UserProfileComponent, },
   { path: 'login', component: LoginComponent },

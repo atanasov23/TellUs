@@ -12,6 +12,47 @@ const getFollowers = async (id) => {
 
 }
 
+const sendMessage = async (data) => {
+
+    const sender = await User.findById(data.sender);
+    const receiver = await User.findById(data.receiver);
+
+    sender.sendMessages.push(data);
+    receiver.messageReceived.push(data);
+
+    sender.save();
+
+    receiver.save();
+
+}
+
+const answerToMessage = async (data) => {
+    const sender = await User.findById(data.sender);
+    const receiver = await User.findById(data.receiver);
+
+    sender.sendMessages.push(data);
+    receiver.messageReceived.push(data);
+
+    sender.save();
+
+    receiver.save();
+}
+
+
+const mySentMessages = async (id) => {
+
+    const user = await User.findById(id).lean();
+
+    return user.sendMessages;
+}
+
+const myReceivedMessages = async (id) => {
+
+    const user = await User.findById(id).lean();
+
+    return user.messageReceived;
+}
+
 const follow = async (data) => {
 
    const logUser =  await User.findById(data.logUserId);
@@ -129,5 +170,9 @@ module.exports = {
     follow,
     unFollow,
     getFollowed,
-    getFollowers
+    getFollowers,
+    sendMessage,
+    mySentMessages,
+    myReceivedMessages,
+    answerToMessage
 }

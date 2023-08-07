@@ -15,7 +15,7 @@
                 <p *ngIf="!follower && this.logUser._id !== undefined" (click)="follow()">Последване</p>
                 <p *ngIf="follower" (click)="unFollow()" style="color: red;">Последван</p>
             </div>
-            <a *ngIf="this.logUser._id !== userData._id && this.logUser._id !== undefined" routerLink="message" id="edit">Съобщение</a>
+            <a *ngIf="this.logUser._id !== userData._id && this.logUser._id !== undefined" routerLink="message/{{userData._id}}" id="edit">Съобщение</a>
         </div>
 
         <div class="user-info">

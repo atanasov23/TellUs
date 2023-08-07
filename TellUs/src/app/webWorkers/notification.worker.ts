@@ -4,9 +4,6 @@ addEventListener('message', async (id) => {
 
   const userID = id.data;
 
-  console.log(userID);
-
-
   let notificationForSend: any = [];
 
   const getNotification = async () => {

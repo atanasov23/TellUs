@@ -12,6 +12,10 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UserPublicationComponent } from './components/user-details/user-publication/user-publication.component';
 import { UserFollowedComponent } from './components/user-details/user-followed/user-followed.component';
 import { UserFollowersComponent } from './components/user-details/user-followers/user-followers.component';
+import { MessageBoxComponent } from './components/message-box/message-box.component';
+import { SentMessagesComponent } from './components/my-messages/sent-messages/sent-messages.component';
+import { MessagesReceivedComponent } from './components/my-messages/messages-received/messages-received.component';
+import { MyMessagesComponent } from './components/my-messages/my-messages.component';
 
 
 
@@ -25,7 +29,11 @@ import { UserFollowersComponent } from './components/user-details/user-followers
     UserDetailsComponent,
     UserPublicationComponent,
     UserFollowedComponent,
-    UserFollowersComponent
+    UserFollowersComponent,
+    MessageBoxComponent,
+    SentMessagesComponent,
+    MessagesReceivedComponent,
+    MyMessagesComponent
   ],
   imports: [
     CommonModule,

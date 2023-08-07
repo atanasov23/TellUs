@@ -17,6 +17,35 @@ router.get('/getFollowers/:id', async (req, res) => {
     res.send(result.followers);
 });
 
+router.post('/sendMessage', async (req, res) => {
+
+    const result = await userData.sendMessage(req.body);
+
+    res.send();
+})
+
+router.post('/answer', async (req, res) => {
+
+    console.log(req.body);
+
+    const result = await userData.answerToMessage(req.body);
+
+    res.send();
+})
+
+router.get('/mySentMessages/:id', async (req, res) => {
+
+    const result = await userData.mySentMessages(req.params.id);
+
+    res.send(result);
+})
+
+router.get('/myReceivedMessages/:id', async (req, res) => {
+
+    const result = await userData.myReceivedMessages(req.params.id);
+
+    res.send(result);
+})
 
 
 router.get('/getImage/:username', async (req, res) => {

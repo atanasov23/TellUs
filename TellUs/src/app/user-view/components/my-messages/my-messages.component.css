@@ -1,0 +1,24 @@
+.myMessages{
+    width: 600px;
+    margin: auto;
+    margin-top: 2em;
+    font-size: 13px;
+}
+
+.myMessages p {
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    background-color: #ede8e8;
+    color: black;
+    margin: 1em;
+    padding: 0.5em;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.nav{
+    text-align: center;
+}

@@ -11,7 +11,8 @@ const register = async (data) => {
         username: data.username,
         email: data.email,
         password: hashedPassword,
-        profileImage: ''
+        profileImage: '',
+        messages: []
     });
 }
 
