@@ -1,4 +1,5 @@
 <div class="message-area">
+    <p>{{message}}</p>
     <div class="message-field">
         <form #form="ngForm" (ngSubmit)="sendMessage(form)">
             <textarea name="msg" id="" cols="30" rows="10" ngModel></textarea>

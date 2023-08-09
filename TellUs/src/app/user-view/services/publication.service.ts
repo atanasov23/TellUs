@@ -43,6 +43,16 @@ export class PublicationService {
     return this.http.get(`http://localhost:3000/allPosts`);
   }
 
+  getImage(){
+
+    return this.http.get(`http://localhost:3000/getImage`);
+  }
+
+  getVideo(){
+
+    return this.http.get(`http://localhost:3000/getVideo`);
+  }
+
   like(postId: any) {
     return this.http.post(`http://localhost:3000/like/${postId}`, {});
   }

@@ -8,9 +8,6 @@
     margin: auto;
 }
 
-/* .myFollowers::-webkit-scrollbar {
-    display: none;
-} */
 
 .followers {
     display: flex;

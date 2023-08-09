@@ -4,6 +4,11 @@
     margin-top: 1em;
 }
 
+.my-messages p {
+
+    font-size: 13px;
+}
+
 .messages{
     display: flex;
     border: 1px solid #ede8e8;

@@ -1,11 +1,11 @@
 <div class="my-messages">
-    <p *ngIf="myReceivedMessages?.length === 0">Нямате получени съобщения</p>
+    <p *ngIf="myReceivedMessages?.length === 0">Нямате получени съобщения...</p>
     <div *ngFor="let el of myReceivedMessages" class="messages">
         <p>{{el.msg}}</p>
         <form #form="ngForm" (ngSubmit)="answerToMessage(form, el)">
             <input type="text" name="answer" ngModel>
             <button>Отговор</button>
         </form>
-        <button>Изтриване</button>
+        <button (click)="deleteMsg(el.msg)">Изтриване</button>
     </div>
 </div>

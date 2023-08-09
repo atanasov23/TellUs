@@ -27,4 +27,14 @@ export class MessagesReceivedComponent {
     this.userService.answerToMessage(answer).subscribe(res => this.myReceivedMessages = res);
 
   }
+
+  deleteMsg(msg: any){
+
+    this.userService.deleteReceivedMessage(msg, this.cookie.getCookie('user')._id).subscribe(res => {
+
+     this.myReceivedMessages = res;
+
+    });
+    
+  }
 }

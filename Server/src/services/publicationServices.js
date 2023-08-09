@@ -111,6 +111,16 @@ const getNotification = async () => {
 
 }
 
+const getImage = async () => {
+
+    return await PublicationsModel.find({type: "image/jpeg"}).lean();
+}
+
+const getVideo = async () => {
+
+    return await PublicationsModel.find({type: "video/mp4"}).lean();
+}
+
 
 module.exports = {
     publication,
@@ -123,6 +133,8 @@ module.exports = {
     disLike,
     coment,
     addNotification,
-    getNotification
+    getNotification,
+    getImage,
+    getVideo
 
 }

@@ -21,7 +21,11 @@ export class SentMessagesComponent {
 
   deleteMsg(msg: any){
 
-    console.log(msg);
+    this.userService.deleteSentMessage(msg, this.cookie.getCookie('user')._id).subscribe(res => {
+
+     this.mySentMessages = res;
+
+    });
     
   }
 }

@@ -12,6 +12,8 @@ export class MessageBoxComponent {
 
   constructor(private cookieService: GetCookieService, private route: ActivatedRoute, private userService: UserDataService) { }
 
+  message: string = '';
+
   sendMessage(event: any) {
 
     const msg = event.value.msg;
@@ -24,7 +26,15 @@ export class MessageBoxComponent {
       msg
     }
 
-    this.userService.sendMessage(msgData).subscribe(res => res);
+    this.userService.sendMessage(msgData).subscribe(res => {
+
+      this.message = 'Съобщението е изпратено.';
+
+      setTimeout(() => {
+
+        this.message = '';
+      }, 2000)
+    });
   }
 
 }

@@ -136,4 +136,18 @@ router.post('/coment', async (req, res) => {
     res.send(post.comments);
 })
 
+router.get('/getImage', async (req, res) => {
+
+    const allImage = await publicationsServices.getImage();
+
+    res.send(allImage);
+})
+
+router.get('/getVideo', async (req, res) => {
+
+    const allVideo = await publicationsServices.getVideo();
+
+    res.send(allVideo);
+})
+
 module.exports = router;

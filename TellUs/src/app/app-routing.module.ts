@@ -9,9 +9,13 @@ import { MainPostViewComponent } from './user-view/components/main-post-view/mai
 import { UserDetailsComponent } from './user-view/components/user-details/user-details.component';
 import { MessageBoxComponent } from './user-view/components/message-box/message-box.component';
 import { MyMessagesComponent } from './user-view/components/my-messages/my-messages.component';
+import { ShowImageComponent } from './user-view/components/show-image/show-image.component';
+import { ShowVideoComponent } from './user-view/components/show-video/show-video.component';
 
 const routes: Routes = [
   { path: '', component: MainPostViewComponent },
+  { path: 'images', component: ShowImageComponent },
+  { path: 'videos', component: ShowVideoComponent },
   { path: 'user/:id/message/:id', component: MessageBoxComponent },
   { path: 'myMessages', component: MyMessagesComponent },
   { path: 'user/:id', component: UserDetailsComponent },

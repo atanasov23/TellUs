@@ -26,12 +26,24 @@ router.post('/sendMessage', async (req, res) => {
 
 router.post('/answer', async (req, res) => {
 
-    console.log(req.body);
-
     const result = await userData.answerToMessage(req.body);
 
     res.send();
-})
+});
+
+router.delete('/deleteSendMessage/:msg/:id', async ( req, res ) => {
+
+    const result = await userData.deleteSentMessage(req.params);
+
+    res.send(result);
+});
+
+router.delete('/deleteReceivedMessage/:msg/:id', async ( req, res ) => {
+    
+    const result = await userData.deleteReceivedMessage(req.params);
+
+    res.send(result);
+});
 
 router.get('/mySentMessages/:id', async (req, res) => {
 

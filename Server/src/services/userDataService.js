@@ -53,6 +53,48 @@ const myReceivedMessages = async (id) => {
     return user.messageReceived;
 }
 
+const deleteSentMessage = async (data) => {
+
+    const user = await User.findById(data.id);
+
+    for (let el of user.sendMessages) {
+
+        if (el.msg === data.msg) {
+
+            const index = user.sendMessages.indexOf(el);
+
+            user.sendMessages.splice(index, 1);
+
+            user.save();
+
+        }
+    }
+
+    return user.sendMessages;
+
+}
+
+const deleteReceivedMessage = async (data) => {
+
+    const user = await User.findById(data.id);
+
+    for (let el of user.messageReceived) {
+
+        if (el.msg === data.msg) {
+
+            const index = user.messageReceived.indexOf(el);
+
+            user.messageReceived.splice(index, 1);
+
+            user.save();
+
+        }
+    }
+
+    return user.messageReceived;
+
+}
+
 const follow = async (data) => {
 
    const logUser =  await User.findById(data.logUserId);
@@ -174,5 +216,7 @@ module.exports = {
     sendMessage,
     mySentMessages,
     myReceivedMessages,
-    answerToMessage
+    answerToMessage,
+    deleteSentMessage,
+    deleteReceivedMessage
 }

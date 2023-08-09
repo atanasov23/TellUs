@@ -16,6 +16,8 @@ import { MessageBoxComponent } from './components/message-box/message-box.compon
 import { SentMessagesComponent } from './components/my-messages/sent-messages/sent-messages.component';
 import { MessagesReceivedComponent } from './components/my-messages/messages-received/messages-received.component';
 import { MyMessagesComponent } from './components/my-messages/my-messages.component';
+import { ShowVideoComponent } from './components/show-video/show-video.component';
+import { ShowImageComponent } from './components/show-image/show-image.component';
 
 
 
@@ -33,7 +35,9 @@ import { MyMessagesComponent } from './components/my-messages/my-messages.compon
     MessageBoxComponent,
     SentMessagesComponent,
     MessagesReceivedComponent,
-    MyMessagesComponent
+    MyMessagesComponent,
+    ShowVideoComponent,
+    ShowImageComponent
   ],
   imports: [
     CommonModule,
