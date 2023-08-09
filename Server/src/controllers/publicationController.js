@@ -122,32 +122,39 @@ router.post('/like/:postId', async (req, res) => {
     res.send()
 });
 
-router.post('/disLike/:postId', async ( req, res ) => {
+router.post('/disLike/:postId', async (req, res) => {
 
     await publicationsServices.disLike(req.params.postId);
 
     res.send();
-})
+});
 
 router.post('/coment', async (req, res) => {
 
     const post = await publicationsServices.coment(req.body);
 
     res.send(post.comments);
-})
+});
 
 router.get('/getImage', async (req, res) => {
 
     const allImage = await publicationsServices.getImage();
 
     res.send(allImage);
-})
+});
 
 router.get('/getVideo', async (req, res) => {
 
     const allVideo = await publicationsServices.getVideo();
 
     res.send(allVideo);
+});
+
+router.get('/search/:text', async (req, res) => {
+
+    const result = await publicationsServices.search(req.params.text);
+
+    res.send(result);
 })
 
 module.exports = router;

@@ -21,6 +21,12 @@ export class PublicationService {
     return this.http.post<any>(`http://localhost:3000/adding`, formData, { params });
   }
 
+  search(text: string){
+
+    return this.http.get(`http://localhost:3000/search/${text}`);
+
+  }
+
   getMyPublications(username: any) {
 
     return this.http.get(`http://localhost:3000/myPublications/${username}`);

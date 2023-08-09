@@ -40,22 +40,14 @@ export class LoginComponent {
 
       if (typeof Worker !== 'undefined') {
 
-        console.log(20);
-        
-
         const worker = workers.notificationWorker;
         worker.onmessage = ( res ) => {
 
-          console.log(res.data);
-          
           this.notificationService.notificationData.next(res.data);
         };
 
         worker.postMessage(this.cookie.getCookie('user')._id);
       } else {
-        console.log(30);
-        // Web Workers are not supported in this environment.
-        // You should add a fallback so that your program still executes correctly.
       }
 
       this.router.navigateByUrl('/')

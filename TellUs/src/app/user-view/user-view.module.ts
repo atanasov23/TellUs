@@ -18,6 +18,7 @@ import { MessagesReceivedComponent } from './components/my-messages/messages-rec
 import { MyMessagesComponent } from './components/my-messages/my-messages.component';
 import { ShowVideoComponent } from './components/show-video/show-video.component';
 import { ShowImageComponent } from './components/show-image/show-image.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 
@@ -37,7 +38,8 @@ import { ShowImageComponent } from './components/show-image/show-image.component
     MessagesReceivedComponent,
     MyMessagesComponent,
     ShowVideoComponent,
-    ShowImageComponent
+    ShowImageComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,

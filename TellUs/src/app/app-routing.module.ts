@@ -11,9 +11,11 @@ import { MessageBoxComponent } from './user-view/components/message-box/message-
 import { MyMessagesComponent } from './user-view/components/my-messages/my-messages.component';
 import { ShowImageComponent } from './user-view/components/show-image/show-image.component';
 import { ShowVideoComponent } from './user-view/components/show-video/show-video.component';
+import { SearchComponent } from './user-view/components/search/search.component';
 
 const routes: Routes = [
   { path: '', component: MainPostViewComponent },
+  { path: 'search', component: SearchComponent },
   { path: 'images', component: ShowImageComponent },
   { path: 'videos', component: ShowVideoComponent },
   { path: 'user/:id/message/:id', component: MessageBoxComponent },

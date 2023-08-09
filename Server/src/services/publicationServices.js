@@ -101,7 +101,7 @@ const coment = async (data) => {
 
 const addNotification = async (data) => {
 
-   return await NotificationModel.create(data);
+    return await NotificationModel.create(data);
 
 }
 
@@ -113,12 +113,17 @@ const getNotification = async () => {
 
 const getImage = async () => {
 
-    return await PublicationsModel.find({type: "image/jpeg"}).lean();
+    return await PublicationsModel.find({ type: "image/jpeg" }).lean();
 }
 
 const getVideo = async () => {
 
-    return await PublicationsModel.find({type: "video/mp4"}).lean();
+    return await PublicationsModel.find({ type: "video/mp4" }).lean();
+}
+
+const search = async (text) => {
+
+    return await PublicationsModel.find({ fileName: { $regex: `${text}` } }).lean();
 }
 
 
@@ -135,6 +140,7 @@ module.exports = {
     addNotification,
     getNotification,
     getImage,
-    getVideo
+    getVideo,
+    search
 
 }
